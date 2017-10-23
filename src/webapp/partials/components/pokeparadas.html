@@ -1,0 +1,26 @@
+<!-- <div class="col-sm-6"> -->
+    <div class="table-responsive ">
+        <div class="table-editable">
+            <table class="table">
+                <thead id="teal">
+                    <tr>
+                        <th>Pokeparada</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="tabla-body" ng-controller="pokeparadaController as PokeparadasCtrl">
+                    <tr ng-repeat="pokeparada in PokeparadasCtrl.pokeparadas">
+                        <td>{{pokeparada.nombre}}</td>
+                        <td>
+                            <img ng-click="PokeparadasCtrl.curar()" ng-src="img/cruz.svg" height="25px" width="25px">
+                        </td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+
+<!-- </div> -->
