@@ -1,5 +1,6 @@
 package repositorios
 
+import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.geodds.Point
 import tp.pokemon2017.Entrenador
@@ -20,11 +21,37 @@ class RepoEntrenadores {
 	}
 
 	def crearNPC() {
-		repo.create(new Entrenador("Ash", tablaDeNiveles, 20) => [experiencia = 10000 coordenadaActual=new Point(-58.441856,34.551667)])
-		repo.create(new Entrenador("Misty", tablaDeNiveles, 20) => [experiencia = 15000 esExperto=true 	coordenadaActual=new Point(-58.441856,34.551667)])
-		repo.create(new Entrenador("Brock", tablaDeNiveles, 20) => [experiencia = 21000 esExperto=true coordenadaActual=new Point(-58.441856,34.551667)])
-		repo.create(new Entrenador("Red", tablaDeNiveles, 20) => [experiencia = 750000 coordenadaActual=new Point(-58.441856,34.551667)])
-		repo.create(new Entrenador("Gary", tablaDeNiveles, 20) => [experiencia = 450000 esExperto=true coordenadaActual=new Point(-58.441856,34.551667) ] )
+		var List<Entrenador> trainers = #[
+			new Entrenador("Ash", tablaDeNiveles, 20) => [
+				experiencia = 10000
+				coordenadaActual = new Point(-58.442857, 34.551667)
+			],
+			new Entrenador("Misty", tablaDeNiveles, 20) => [
+				experiencia = 15000
+				esExperto = true
+				coordenadaActual = new Point(-58.443857, 34.551667)
+			],
+			new Entrenador("Brock", tablaDeNiveles, 20) => [
+				experiencia = 21000
+				esExperto = true
+				coordenadaActual = new Point(58.441856, 34.551667)
+			],
+			new Entrenador("Red", tablaDeNiveles, 20) => [
+				experiencia = 750000
+				coordenadaActual = new Point(58.441856, 34.551667)
+			],
+			new Entrenador("Gary", tablaDeNiveles, 20) => [
+				experiencia = 450000
+				esExperto = true
+				coordenadaActual = new Point(-58.441856, 34.551667)
+			]
+		]
+		trainers.forEach[trainer|trainer.calcularNivel() repo.create(trainer)]
+		repo.updatePlayer(new Entrenador("Leo", tablaDeNiveles, 20) => [
+			experiencia = 450000
+			esExperto = true
+			coordenadaActual = new Point(-58.441856, 34.551667)
+		])
 	}
 
 }

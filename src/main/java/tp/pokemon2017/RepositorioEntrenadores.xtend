@@ -4,6 +4,7 @@ import java.util.List
 
 class RepositorioEntrenadores extends RepositorioGenerico<Entrenador> {
 	static var RepositorioEntrenadores instance
+	var Entrenador player
 
 //INICIO DEL SINGLETON PATTERN	
 	private new() {
@@ -20,7 +21,7 @@ class RepositorioEntrenadores extends RepositorioGenerico<Entrenador> {
 
 //FIN DEL SINGLETON PATTERN
 	override void create(Entrenador _entrenador) {
-		if (!listaRepo.contains(_entrenador)) {
+		if (!listaRepo.exists[trainer |trainer.nombre .equals(_entrenador.nombre)]) {
 			listaRepo.add(_entrenador)
 		}
 	}
@@ -39,6 +40,25 @@ class RepositorioEntrenadores extends RepositorioGenerico<Entrenador> {
 
 	override contieneString(Entrenador _objetoRecibido, String valor) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	def updatePlayer(Entrenador _trainer){
+		if(player === null){
+			player = _trainer
+		}
+		else this.actualizarPlayer(_trainer)
+	}
+	
+	def actualizarPlayer(Entrenador _trainer) {
+		player.experiencia = _trainer.experiencia
+		player.coordenadaActual = _trainer.coordenadaActual
+		player.dinero= _trainer.dinero
+		player.victorias = _trainer.victorias
+
+	}
+	
+	
+	def getPlayer(){
+		player
 	}
 
 }
