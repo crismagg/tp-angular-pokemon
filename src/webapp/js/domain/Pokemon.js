@@ -3,6 +3,7 @@ class Pokemon {
         this.experiencia = 0
         this.especie = _especie
         this.propietario = _propietario
+        this.velocidad
     }
     get nivel() {
         return Math.floor((Math.sqrt(100 * (2 * this.experiencia + 25)) + 50) / 100)
@@ -15,11 +16,14 @@ class Pokemon {
     get ataque() {
         return this.especie.ataqueBasico * this.nivel
     }
-    get defensa(){
+    get defensa() {
         return this.especie.defensaBasica * this.nivel
     }
-    get puntosDeSalud(){
+    get puntosDeSalud() {
         return this.especie.saludBase * this.nivel
+    }
+    get chancesEscapar() {
+        return this.nivel * (1 + this.velocidad / 10)
     }
 
     esFuerte(pokemonRival) {
@@ -57,7 +61,7 @@ class Pokemon {
         const experto = 1.2
         const noExperto = 1
         if (this.propietario.esExperto()) {
-          return experto
+            return experto
         }
         return noExperto
     }
