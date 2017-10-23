@@ -2,34 +2,37 @@ class OponenteController {
     constructor(oponenteService) {
         this.oponenteService = oponenteService
         this.player
-        this.prueba = new Entrenador()
+        this.getPlayer()
         this.oponentes = []
+        this.obtenerOponentesCercanos()
         this.apuesta = 0
         this.victoria = ""
-        this.obtenerOponentesCercanos()
-    }
-
-    obtenerOponentesCercanos() {
-        this.oponenteService.findAll((response) => {
-            this.oponentes = _.map(response.data, this.transformarAEntrenador)
-
-        })
+        this.distanciaCercana = 0.001
+        
     }
 
     getPlayer() {
         this.oponenteService.findPlayer((response) => {
-            this.player = _.map(response.data, this.transformarAEntrenador)
+            this.player = this.transformarAEntrenador(response.data)
+            this.player.calcularNivel()
+        })
+    }
+    obtenerOponentesCercanos() {
+        this.oponenteService.findAll((response) => {
+            this.oponentes = _.map(response.data, this.transformarAEntrenador)
+            
         })
     }
     transformarAEntrenador(jsonEntrenador) {
         return Entrenador.asEntrenador(jsonEntrenador)
     }
-    proximidad(oponente){
-        return Entrenador.esCercano(this.player,oponente)
+    proximidad(oponente) {
+        return this.player.esCercano(oponente) && oponente.nombre !== this.player.nombre
     }
+
     battle() {
         if (this.apuesta < 100) {
-            
+
             this.victoria = "Ganaste!!"
         } else(this.victoria = "Perdiste!!")
     }

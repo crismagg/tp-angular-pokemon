@@ -1,31 +1,38 @@
-class BotonesController{
-    constructor(oponenteService){
+class BotonesController {
+    constructor(oponenteService) {
         this.oponenteService = oponenteService
         this.player
-        this.getPlayer()    
+        this.getPlayer()
         // this.coordenadaGeografica //= new Punto(-58.441856,34.551667)
         this.distanciaAAvanzar = 0.001
     }
-
     getPlayer() {
         this.oponenteService.findPlayer((response) => {
-            this.player =( _.map(response.data, this.transformarAEntrenador))[0]
-        })  
-    }
+            this.player = this.transformarAEntrenador(response.data)
+            this.player.calcularNivel()
+        })
+    }   
     transformarAEntrenador(jsonEntrenador) {
         return Entrenador.asEntrenador(jsonEntrenador)
     }
 
-    norte(){
-        this.player.coordenadaActual.y=this.player.coordenadaActual.y + this.distanciaAAvanzar
+    actualizar() {
+        this.oponenteService.updatePlayer(this.player, () => {})
     }
-    sur(){
-        this.player.coordenadaActual.y=this.player.coordenadaActual.y - this.distanciaAAvanzar
+    norte() {
+        this.player.coordenadaActual.y = this.player.coordenadaActual.y + this.distanciaAAvanzar
+        this.actualizar()
     }
-    este(){
-        this.player.coordenadaActual.x=this.player.coordenadaActual.x - this.distanciaAAvanzar
+    sur() {
+        this.player.coordenadaActual.y = this.player.coordenadaActual.y - this.distanciaAAvanzar
+        this.actualizar()
     }
-    oeste(){
-        this.player.coordenadaActual.x=this.player.coordenadaActual.x + this.distanciaAAvanzar
+    este() {
+        this.player.coordenadaActual.x = this.player.coordenadaActual.x - this.distanciaAAvanzar
+        this.actualizar()
+    }
+    oeste() {
+        this.player.coordenadaActual.x = this.player.coordenadaActual.x + this.distanciaAAvanzar
+        this.actualizar()
     }
 }
