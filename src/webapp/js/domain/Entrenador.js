@@ -4,7 +4,7 @@ class Entrenador {
         this.nivel
         this.nivelMaximo = 20
         this.experiencia = 0;
-        this.pokemonesCapturadas = []
+        this.pokemonesCapturados = []
         this.tablaDeNiveles = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 65000, 75000, 85000, 100000, 120000, 140000, 160000, 185000, 210000]
         this.esExperto
         this.coordenadaActual
@@ -61,9 +61,14 @@ class Entrenador {
         // return Math.random() <=
         //     (this.pokemonElegido.chanceVictoria() / (this.pokemonElegido.chanceVictoria() + oponente.pokemonElegido.chanceVictoria()))
     }
-
-    capturar(pokemon) {
-        return Math.random() <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar())
+    capturar(pokemon){
+        if(this.capturaPokemon){
+            this.pokemonesCapturados.push(pokemon)
+        }
+    }
+    capturaPokemon(pokemon) {
+        return true
+        // return Math.random() <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar())
     }
 
     chancesCapturar() {

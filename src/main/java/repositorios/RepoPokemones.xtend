@@ -1,6 +1,7 @@
 package repositorios
 
 import tp.pokemon2017.Especie
+import tp.pokemon2017.Pokemon
 import tp.pokemon2017.RepositorioEspecie
 import tp.pokemon2017.RepositorioPokemones
 import tp.pokemon2017.TipoDePokemon
@@ -26,6 +27,7 @@ class RepoPokemones {
 
 	def crearPokemones() {
 		this.crearEspecies()
+		new Poskemon
 	}
 
 	def crearEspecies() {

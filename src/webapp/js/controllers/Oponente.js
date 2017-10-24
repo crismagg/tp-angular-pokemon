@@ -9,10 +9,11 @@ class OponenteController {
         this.victoria = ""
         this.distanciaCercana = 0.001
         this.pokemonesSalvajes = []
-        this.imagenEspecie //= "https://cdn6.aptoide.com/imgs/5/9/0/590ec974ff82245193c53f4947d1c803_icon.png?w=256"
         this.pokemonSeleccionado
+        this.obtenerPokemonesSalvajesCercanos()
+        this.distanciaAAvanzar = 0.001
     }
-
+    
     getPlayer() {
         this.oponenteService.findPlayer((response) => {
             this.player = this.transformarAEntrenador(response.data)
@@ -26,6 +27,10 @@ class OponenteController {
             
         })
     }
+    obtenerPokemonesSalvajesCercanos(){
+        this.pokemonesSalvajes = this.oponenteService.getPokemones()
+    }
+
     transformarAEntrenador(jsonEntrenador) {
         return Entrenador.asEntrenador(jsonEntrenador)
     }
@@ -44,7 +49,20 @@ class OponenteController {
     seleccionar(pokemon){
         this.pokemonSeleccionado = pokemon
     }
-    mostrarImagen(especie) {
-        this.imagenEspecie = especie.imagen
+    capturar(pokemon){
+        this.player.capturar(pokemon)
+    }
+
+    norte() {
+        this.player.coordenadaActual.y = this.player.coordenadaActual.y + this.distanciaAAvanzar
+    }
+    sur() {
+        this.player.coordenadaActual.y = this.player.coordenadaActual.y - this.distanciaAAvanzar
+    }
+    este() {
+        this.player.coordenadaActual.x = this.player.coordenadaActual.x - this.distanciaAAvanzar
+    }
+    oeste() {
+        this.player.coordenadaActual.x = this.player.coordenadaActual.x + this.distanciaAAvanzar
     }
 }

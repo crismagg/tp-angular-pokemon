@@ -7,7 +7,7 @@ const routes = ($stateProvider, $urlRouterProvider) => {
         .state('elMundo', {
             url: "/",
             templateUrl: "partials/el-mundo.html" ,
-            controller: "pokemonController as PkmCtrl"
+            controller: "oponenteController as playerCtrl"
 
         })
 

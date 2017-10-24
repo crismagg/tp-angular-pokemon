@@ -13,7 +13,7 @@
                         <br>
                         <br>
                         <div class="col-sm-offset-5">
-                            <button ng-click="botonera.norte()">
+                            <button ng-click="playerCtrl.norte()">
                                 <img src="img/Arrow up.png" width="50" height="50">
                             </button>
                         </div>
@@ -21,10 +21,10 @@
                     <br>
                     <div class="row">
                         <div class="col-sm-offset-3">
-                            <button ng-click="botonera.oeste()">
+                            <button ng-click="playerCtrl.oeste()">
                                 <img src="img/Arrow Left.png" width="50" height="50">
                             </button>
-                            <button class="col-sm-offset-3" ng-click="botonera.este()">
+                            <button class="col-sm-offset-3" ng-click="playerCtrl.este()">
                                 <img src="img/Arrow Right.png" width="50" height="50">
                             </button>
                         </div>
@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-sm-offset-5">
                             <button>
-                                <img src="img/Arrow Down.png" width="50" height="50" ng-click="botonera.sur()">
+                                <img src="img/Arrow Down.png" width="50" height="50" ng-click="playerCtrl.sur()">
                             </button>
                         </div>
                     </div>
@@ -42,8 +42,8 @@
                     <div class="col-sm-offset-3">
                         <div>
                             <img src="img/ubicacion2.png" width="50em" height="50em">
-                            <label ng-bind="botonera.player.coordenadaActual.x"></label>
-                            <label ng-bind="botonera.player.coordenadaActual.y"></label>
+                            <label ng-bind="playerCtrl.player.coordenadaActual.x"></label>
+                            <label ng-bind="playerCtrl.player.coordenadaActual.y"></label>
                         </div>
                     </div>
     
