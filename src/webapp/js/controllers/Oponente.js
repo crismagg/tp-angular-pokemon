@@ -31,11 +31,13 @@ class OponenteController {
         return this.player.esCercano(oponente) && oponente.nombre !== this.player.nombre
     }
 
-    battle() {
-        if (this.apuesta < 100) {
+    battle(oponente) {
+        this.player.batallar(oponente)
+        
+        // if (this.apuesta < 100) {
 
-            this.victoria = "Ganaste!!"
-        } else(this.victoria = "Perdiste!!")
+        //     this.victoria = "Ganaste!!"
+        // } else(this.victoria = "Perdiste!!")
     }
     mostrarImagen() {
         this.imagen = "https://material.io/guidelines/static/spec/images/callouts/default.svg"

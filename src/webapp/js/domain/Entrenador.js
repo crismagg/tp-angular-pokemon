@@ -10,6 +10,7 @@ class Entrenador {
         this.coordenadaActual
         this.victorias
         this.dinero
+        this.apuesta = 0
         // this.distanciaCercana = 0.001
         this.calcularNivel()
     }
@@ -40,13 +41,24 @@ class Entrenador {
     }
 
     esCercano(oponente) {
-        return (Math.abs(oponente.coordenadaActual.x) - Math.abs(this.coordenadaActual.x) <= this.distanciaCercana) &&
-            (Math.abs(oponente.coordenadaActual.y) - Math.abs(this.coordenadaActual.y)) <= this.distanciaCercana
+        return Math.abs((Math.abs(oponente.coordenadaActual.x) - Math.abs(this.coordenadaActual.x)) <= this.distanciaCercana) &&
+            Math.abs((Math.abs(oponente.coordenadaActual.y) - Math.abs(this.coordenadaActual.y))) <= this.distanciaCercana
     }
 
     batallar(oponente) {
-        return Math.random() <=
-            (this.pokemonElegido.chanceVictoria() / (this.pokemonElegido.chanceVictoria() + oponente.pokemonElegido.chanceVictoria()))
+        if (this.ganarBatalla()) {
+            if (this.apuesta != null) {
+
+                this.dinero += this.apuesta
+                this.apuesta=0
+            }
+        }
+    }
+
+    ganarBatalla(oponente) {
+        return true
+        // return Math.random() <=
+        //     (this.pokemonElegido.chanceVictoria() / (this.pokemonElegido.chanceVictoria() + oponente.pokemonElegido.chanceVictoria()))
     }
 
     capturar(pokemon) {

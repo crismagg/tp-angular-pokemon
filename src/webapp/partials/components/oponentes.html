@@ -14,11 +14,13 @@
                 <tbody >
                     <tr ng-repeat="oponente in Oponente.oponentes" ng-show="Oponente.proximidad(oponente)" class ="ng-hide">
                         <td>{{oponente.nombre}}</td>
-                        <td>lelo</td>
+                        <!-- <td>lelo</td> -->
+                        <td>{{Oponente.player.dinero}}</td>
                         <!-- <td>{{oponente.especiesCapturadas[0].nombre +" niv. "+ oponente.especiesCapturadas[0].nivel }}</td> -->
                         <td>
-                            <input type="number" class="numberField" ng-model="Oponente.apuesta">
+                            <input type="number" class="numberField" ng-model="Oponente.player.apuesta">
                         </td>
+
                         <!-- <td ng-click="Oponente.mostrarImagen()">hola
 
                         </td>
