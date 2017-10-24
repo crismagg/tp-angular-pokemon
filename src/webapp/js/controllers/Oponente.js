@@ -9,13 +9,15 @@ class OponenteController {
         this.victoria = ""
         this.distanciaCercana = 0.001
         this.pokemonesSalvajes = []
-        
+        this.imagenEspecie //= "https://cdn6.aptoide.com/imgs/5/9/0/590ec974ff82245193c53f4947d1c803_icon.png?w=256"
+        this.pokemonSeleccionado
     }
 
     getPlayer() {
         this.oponenteService.findPlayer((response) => {
             this.player = this.transformarAEntrenador(response.data)
             this.player.calcularNivel()
+            this.player.pokemonesCapturados = this.oponenteService.getPokemones()
         })
     }
     obtenerOponentesCercanos() {
@@ -39,7 +41,10 @@ class OponenteController {
         //     this.victoria = "Ganaste!!"
         // } else(this.victoria = "Perdiste!!")
     }
-    mostrarImagen() {
-        this.imagen = "https://material.io/guidelines/static/spec/images/callouts/default.svg"
+    seleccionar(pokemon){
+        this.pokemonSeleccionado = pokemon
+    }
+    mostrarImagen(especie) {
+        this.imagenEspecie = especie.imagen
     }
 }

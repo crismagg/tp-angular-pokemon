@@ -4,13 +4,14 @@ class Entrenador {
         this.nivel
         this.nivelMaximo = 20
         this.experiencia = 0;
-        // this.especiesCapturadas = []
+        this.pokemonesCapturadas = []
         this.tablaDeNiveles = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 65000, 75000, 85000, 100000, 120000, 140000, 160000, 185000, 210000]
         this.esExperto
         this.coordenadaActual
         this.victorias
         this.dinero
         this.apuesta = 0
+        this.victoria
         // this.distanciaCercana = 0.001
         this.calcularNivel()
     }
@@ -47,7 +48,7 @@ class Entrenador {
 
     batallar(oponente) {
         if (this.ganarBatalla()) {
-            if (this.apuesta != null) {
+            if (this.apuesta != null && this.apuesta > 0) {
 
                 this.dinero += this.apuesta
                 this.apuesta=0

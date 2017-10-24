@@ -1,9 +1,10 @@
 class Especie {
-    constructor(_nombre,_tipos, _atkBasico) {
+    constructor(_nombre, _tipos, _atkBasico) {
         this.tipos = _tipos
         this.ataqueBasico = _atkBasico
-        this.nombre=_nombre 
-        
+        this.nombre = _nombre
+        this.imagen
+
     }
 
     esFuerteA(especie) {
