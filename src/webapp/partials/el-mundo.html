@@ -1,0 +1,88 @@
+<div>
+    
+        <div class="container-fluid">
+            <div class="row">
+    
+            </div>
+            <div class="row">
+                <br>
+                <br>
+                <div class="col-sm-4" ng-controller="botonesController as botonera">
+    
+                    <div class="row">
+                        <br>
+                        <br>
+                        <div class="col-sm-offset-5">
+                            <button ng-click="botonera.norte()">
+                                <img src="img/Arrow up.png" width="50" height="50">
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-offset-3">
+                            <button ng-click="botonera.oeste()">
+                                <img src="img/Arrow Left.png" width="50" height="50">
+                            </button>
+                            <button class="col-sm-offset-3" ng-click="botonera.este()">
+                                <img src="img/Arrow Right.png" width="50" height="50">
+                            </button>
+                        </div>
+    
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-offset-5">
+                            <button>
+                                <img src="img/Arrow Down.png" width="50" height="50" ng-click="botonera.sur()">
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-sm-offset-3">
+                        <div>
+                            <img src="img/ubicacion2.png" width="50em" height="50em">
+                            <label ng-bind="botonera.player.coordenadaActual.x"></label>
+                            <label ng-bind="botonera.player.coordenadaActual.y"></label>
+                        </div>
+                    </div>
+    
+                </div>
+                <!--FIN BOTONES-->
+    
+                <div class="col-sm-8">
+                    <div class="container-fluid">
+                        <p>
+                            <b class="usaFuentePokemon">Oponentes</b>
+                        </p>
+                        <oponentes></oponentes>
+                        <div class="row">
+                            <p class="col-sm-6 text-sm-left">
+                                <b class="usaFuentePokemon">Pok&eacute;mones Salvajes</b>
+                            </p>
+                            <p class="col-sm-6 text-sm-left">
+                                <b class="usaFuentePokemon">Pokeparadas</b>
+                            </p>
+    
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <pokemones-salvajes player="PkmCtrl.player"></pokemones-salvajes>
+                            </div>
+                            <div class="col-sm-6">
+                                <pokeparadas></pokeparadas>
+                            </div>
+    
+                        </div>
+                        <!--Tablas-->
+    
+    
+                    </div>
+                    <!--row padre-->
+    
+                </div>
+                <!--container padre-->
+    
+            </div>
+        </div>
+    </div>
