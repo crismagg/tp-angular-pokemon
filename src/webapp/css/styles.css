@@ -196,11 +196,11 @@ para mejorar la estética en pantallas chicas
   max-width: 59%;
   max-height: 43%;
   left: 37%;
-  top:34%;
+  top:24%;
+  color: white;
 }
 
 #container-nombre-entrenador{
-  top:7%;
   left:36%;
   height: 15%;
   width:64%;

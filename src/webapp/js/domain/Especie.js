@@ -3,6 +3,7 @@ class Especie {
         this.tipos = _tipos
         this.ataqueBasico = _atkBasico
         this.nombre=_nombre 
+        
     }
 
     esFuerteA(especie) {

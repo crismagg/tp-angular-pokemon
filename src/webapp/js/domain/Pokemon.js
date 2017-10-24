@@ -4,6 +4,9 @@ class Pokemon {
         this.especie = _especie
         this.propietario = _propietario
         this.velocidad
+        this.nombre
+        this.genero
+        this.salud
     }
     get nivel() {
         return Math.floor((Math.sqrt(100 * (2 * this.experiencia + 25)) + 50) / 100)
