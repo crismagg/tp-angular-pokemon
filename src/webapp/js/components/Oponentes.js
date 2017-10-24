@@ -4,5 +4,5 @@ const oponentesComponent = {
 
     },
     controller :"oponenteController as Oponente" ,
-    templateUrl: '/js/components/oponentes/oponentes.html'
+    templateUrl: 'partials/components/oponentes.html'
 }

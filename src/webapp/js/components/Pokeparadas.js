@@ -8,5 +8,5 @@ const pokeparadasComponent = {
 
         }
     },
-    templateUrl: '/js/components/pokeparadas/pokeparadas.html'
+    templateUrl: 'partials/components/pokeparadas.html'
 }

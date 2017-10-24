@@ -10,5 +10,5 @@ const pokemonesSalvajes = {
         } 
     }
     ,
-    templateUrl: '/js/components/pokemonesSalvajes/pokemonesSalvajes.html'
+    templateUrl: 'partials/components/pokemonesSalvajes.html'
 }
