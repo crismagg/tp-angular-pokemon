@@ -1,5 +1,6 @@
 package tp.pokemon2017
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.annotations.Observable
@@ -7,16 +8,16 @@ import org.uqbar.commons.model.annotations.Observable
 @Accessors
 @Observable
 class Especie {
-	int numeroID
-	int evolucionID
+	@JsonIgnore int numeroID
+	@JsonIgnore int evolucionID
 	int saludBase
 	int ataqueBase
 	int velocidad
-	int nivelEvolucion
+	@JsonIgnore int nivelEvolucion
 	String nombre
 	String descripcion
-	boolean tieneEvolucion
-	Especie especieEvolucion
+	@JsonIgnore boolean tieneEvolucion
+	@JsonIgnore Especie especieEvolucion
 	List<TipoDePokemon> tipos
 	
 

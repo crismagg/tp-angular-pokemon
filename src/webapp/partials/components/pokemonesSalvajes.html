@@ -1,6 +1,6 @@
 <div class="table-responsive ">
     <div class="table-editable">
-        <table class="table">
+        <table class="table" >
             <thead id="teal">
                 <tr>
                     <th>Pok&eacute;mon</th>
@@ -10,8 +10,9 @@
             </thead>
             <!-- <tbody ng-controller="pokemonController as PkmCtrl">
                 <tr ng-repeat="especie in PkmCtrl.especies"> -->
-                <tbody>
-                    <td>{{vm.player.name}}</td>
+                <tbody ng-controller="oponenteController as op">
+                    <td >{{op.player.nombre}}</td>
+                    <td>{{op.player.nivel}}</td>
                     <!-- <td>{{especie.nombre}}</td>
                     <td>{{especie.nivel}}</td>
                     <td class="fuentePokemon" ng-click="pkmCtrl.captura()">Capturar</td> -->

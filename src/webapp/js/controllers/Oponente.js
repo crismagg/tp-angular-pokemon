@@ -8,6 +8,7 @@ class OponenteController {
         this.apuesta = 0
         this.victoria = ""
         this.distanciaCercana = 0.001
+        this.pokemonesSalvajes = []
         
     }
 

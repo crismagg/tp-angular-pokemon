@@ -5,6 +5,7 @@ import org.uqbar.geodds.Point
 
 @Accessors
 class Pokemon {
+	int idPokemon
 	var int experiencia
 	var int nivel
 	Especie especie

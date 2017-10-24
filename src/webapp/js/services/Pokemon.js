@@ -1,6 +1,11 @@
 class PokemonService{
-    constructor(){
+    constructor($http){
+        this.$http = $http
         this.especies = [{nombre:"pikachu",nivel:5},{nombre:"charmander",nivel:5},{nombre:"cristian",nivel:100}]
+    }
+
+    findPlayer(callback) {
+        this.$http.get('http://localhost:9000/player').then(callback)
     }
 }
 // class PokemonService {

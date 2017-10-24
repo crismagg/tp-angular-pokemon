@@ -6,8 +6,8 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class TipoDePokemon {
 	String tipo
-	Collection<TipoDePokemon> resistente
-	Collection<TipoDePokemon> fuerte
+	Collection<TipoDePokemon> resistente = newArrayList
+	Collection<TipoDePokemon> fuerte = newArrayList
 
 	def fortaleza(Especie especie) {
 		especie.tipos.exists[elemento|fuerte.contains(elemento)]

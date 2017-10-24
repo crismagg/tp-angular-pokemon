@@ -1,17 +1,18 @@
 class PokemonController {
-    constructor(pokemonService, oponenteService) {
+    constructor(pokemonService) {
         this.pokemonService = pokemonService
-        this.oponenteService = oponenteService
-        this.especies = this.pokemonService.especies
         this.player
-        this.actualizarPlayer()
+        this.getPlayer()
     }
-    
 
-    actualizarPlayer() {
-        this.oponenteService.findPlayer((response) => {
-            this.player = _.map(response, Entrenador.asEntrenador())
+
+    getPlayer() {
+        this.pokemonService.findPlayer((response) => {
+            this.player = this.transformarAEntrenador(response.data)
+            this.player.calcularNivel()
         })
     }
-
+    transformarAEntrenador(jsonEntrenador) {
+        return Entrenador.asEntrenador(jsonEntrenador)
+    }
 }
