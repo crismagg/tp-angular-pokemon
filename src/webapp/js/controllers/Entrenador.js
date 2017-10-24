@@ -8,7 +8,7 @@ class EntrenadorController {
     
         getPlayer() {
             this.oponenteService.findPlayer((response) => {
-                this.player = (_.map(response.data, this.transformarAEntrenador))[0]
+                this.player = Entrenador.asEntrenador(response.data)
             })
         }
     
