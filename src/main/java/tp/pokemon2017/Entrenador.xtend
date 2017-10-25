@@ -27,7 +27,7 @@ class Entrenador {
 	@JsonIgnore public static var random = [|return Math.random]
 	@JsonIgnore int victorias = 0
 	@JsonIgnore int cantidadPokemonesEvolucionados = 0
-	@JsonIgnore double dinero = 100
+	double dinero = 100
 	@JsonIgnore Bolso bolso
 	@JsonIgnore Combate combate
 	@JsonIgnore Pokemon pokemonElegido
