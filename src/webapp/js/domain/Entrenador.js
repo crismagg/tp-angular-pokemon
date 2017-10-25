@@ -42,8 +42,8 @@ class Entrenador {
     }
 
     esCercano(oponente) {
-        return Math.abs((Math.abs(oponente.coordenadaActual.x) - Math.abs(this.coordenadaActual.x)) <= this.distanciaCercana) &&
-            Math.abs((Math.abs(oponente.coordenadaActual.y) - Math.abs(this.coordenadaActual.y)) <= this.distanciaCercana)
+        return Math.abs(Math.abs(oponente.coordenadaActual.x) - Math.abs(this.coordenadaActual.x)) <= this.distanciaCercana &&
+            Math.abs(Math.abs(oponente.coordenadaActual.y) - Math.abs(this.coordenadaActual.y)) <= this.distanciaCercana
     }
 
     batallar(oponente) {
