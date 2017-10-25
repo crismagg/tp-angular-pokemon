@@ -1,7 +1,10 @@
 class OponenteService {
     constructor($http) {
         this.$http = $http
-    }   
+        this.takePlayer()
+        let player
+        this.pokemonesSalvajes = []
+    }
 
     findAll(callback) {
         this.$http.get('http://localhost:9000/oponentes').then(callback)
@@ -15,7 +18,18 @@ class OponenteService {
         this.$http.put('http://localhost:9000/player/', player).then(callback)
     }
 
-    getPokemones(){
+    takePlayer() {
+        this.findPlayer((response) => {
+            this.player = this.transformarAEntrenador(response.data)
+            this.player.calcularNivel()
+            this.player.pokemonesCapturados = this.getPokemones()
+        })
+    }
+    transformarAEntrenador(jsonEntrenador) {
+        return Entrenador.asEntrenador(jsonEntrenador)
+    }
+
+    getPokemones() {
         let electricidad
         let fuego
         let agua
@@ -26,18 +40,18 @@ class OponenteService {
         let entrenador1
         let entrenador2
 
-        electricidad = new TipoEspecie("electricidad",[electricidad], [fuego])
-        fuego = new TipoEspecie("fuego",[electricidad], [])
-        agua = new TipoEspecie("agua",[fuego], [fuego])
+        electricidad = new TipoEspecie("electricidad", [electricidad], [fuego])
+        fuego = new TipoEspecie("fuego", [electricidad], [])
+        agua = new TipoEspecie("agua", [fuego], [fuego])
 
-        pikachu = new Especie('Pikachu',[electricidad, agua], 10)
+        pikachu = new Especie('Pikachu', [electricidad, agua], 10)
         pikachu.imagen = "img/PIKACHU.png"
-        charmander = new Especie('Charmander',[fuego], 20)
+        charmander = new Especie('Charmander', [fuego], 20)
         charmander.imagen = "https://vignette2.wikia.nocookie.net/es.pokemon/images/b/be/Charmander_%28anime_SO%29.png/revision/latest?cb=20120906002506"
-        pokemon1 = new Pokemon(pikachu,entrenador1)
-        pokemon2 = new Pokemon(charmander,entrenador2)
+        pokemon1 = new Pokemon(pikachu, entrenador1)
+        pokemon2 = new Pokemon(charmander, entrenador2)
 
-        return [pokemon1,pokemon2] 
+        return [pokemon1, pokemon2]
     }
 
 

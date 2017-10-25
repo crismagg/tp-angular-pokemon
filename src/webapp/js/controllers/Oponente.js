@@ -1,9 +1,8 @@
 class OponenteController {
     constructor(oponenteService) {
         this.oponenteService = oponenteService
-        this.player
-        this.getPlayer()
         this.oponentes = []
+        // this.getPlayer()
         this.obtenerOponentesCercanos()
         this.apuesta = 0
         this.victoria = ""
@@ -14,12 +13,13 @@ class OponenteController {
         this.distanciaAAvanzar = 0.001
     }
     
-    getPlayer() {
-        this.oponenteService.findPlayer((response) => {
-            this.player = this.transformarAEntrenador(response.data)
-            this.player.calcularNivel()
-            this.player.pokemonesCapturados = this.oponenteService.getPokemones()
-        })
+    get player() {
+        // this.oponenteService.findPlayer((response) => {
+        //     this.player = this.transformarAEntrenador(response.data)
+        //     this.player.calcularNivel()
+        //     this.player.pokemonesCapturados = this.oponenteService.getPokemones()
+        // })
+        return this.oponenteService.player
     }
     obtenerOponentesCercanos() {
         this.oponenteService.findAll((response) => {
@@ -51,6 +51,7 @@ class OponenteController {
     }
     capturar(pokemon){
         this.player.capturar(pokemon)
+        this.pokemonesSalvajes.pop(pokemon)
     }
 
     norte() {
