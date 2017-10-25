@@ -18,12 +18,12 @@ class Entrenador {
 	int nivelMaximo
 	int experiencia
 	boolean esExperto = false
+	Point coordenadaActual
 	@JsonIgnore val HashMap tablaDeNiveles
 	@JsonIgnore List<Especie> especiesAtrapadas = new ArrayList()
 	@JsonIgnore Collection<Pokemon> equipoPokemon = new ArrayList()
 	@JsonIgnore Collection<Pokemon> depositoPokemon = new ArrayList()
 	@JsonIgnore TipoDeEntrenador tipoDeEntrenador
-	@JsonIgnore Point coordenadaActual
 	@JsonIgnore public static var random = [|return Math.random]
 	@JsonIgnore int victorias = 0
 	@JsonIgnore int cantidadPokemonesEvolucionados = 0
