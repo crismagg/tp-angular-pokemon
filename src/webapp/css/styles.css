@@ -392,3 +392,19 @@ IDEA = https://codepen.io/ashblue/full/mCtuA/
 } 
 
 /* FIN BODY ENTRENADOR*/
+
+.modal-backdrop{
+  background-color:teal; 
+}
+.modal-content{
+  background-color: rgb(163, 0, 0);
+}
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid darkred;
+}
+.modal-footer{
+  padding: 15px;
+  border-bottom: 1px solid darkred;
+  border-top: 1px solid darkred;
+}

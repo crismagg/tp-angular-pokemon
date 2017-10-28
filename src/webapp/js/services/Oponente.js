@@ -1,9 +1,11 @@
 class OponenteService {
     constructor($http) {
         this.$http = $http
-        this.takePlayer()
         let player
+        this.idGenerate = 0
         this.pokemonesSalvajes = []
+        this.getPokemones()
+        this.takePlayer()
     }
 
     findAll(callback) {
@@ -22,9 +24,9 @@ class OponenteService {
         this.findPlayer((response) => {
             this.player = this.transformarAEntrenador(response.data)
             this.player.calcularNivel()
-            this.player.pokemonesCapturados = this.getPokemones()
         })
     }
+
     transformarAEntrenador(jsonEntrenador) {
         return Entrenador.asEntrenador(jsonEntrenador)
     }
@@ -51,8 +53,58 @@ class OponenteService {
         pokemon1 = new Pokemon(pikachu, entrenador1)
         pokemon2 = new Pokemon(charmander, entrenador2)
 
-        return [pokemon1, pokemon2]
+        this.pokemonesSalvajes.push(pokemon1)
+        this.pokemonesSalvajes.push(pokemon2)
     }
+
+    salvajeCapturado(pokemon) {
+        var pos = this.pokemonArrayId(pokemon)
+        this.borrar(pos)
+
+        // if (pos > 0) {
+        //     this.pokemonesSalvajes.splice(pos-1, 1)
+        //     console.log(this.pokemonesSalvajes)
+        // }
+        // else if(pos == 0){
+        //     this.pokemonesSalvajes.splice(pos, 1)
+        // }
+        
+    }
+    // borrar(posicion){
+    //     if(posicion == 0){
+    //         var eliminado =this.pokemonesSalvajes.shift()
+    //     }
+    //     else {
+    //         var eliminado = this.pokemonesSalvajes.slice(posicion-1,1)
+    //     }
+
+    //     // var tempArray = []
+    //     // delete array[posicion]
+    //     // array.forEach(function(poke){
+    //     //     if(poke == undefined){
+    //     //     }else{
+    //     //         tempArray.push(poke)
+    //     //     }
+    //     // })
+    //     // this.pokemonesSalvajes = tempArray
+    // }
+    
+
+    // pokemonArrayId(pokemon) {
+    //     // return this.pokemonesSalvajes.indexOf(function (_pokemon) {
+    //     //     return _pokemon.id == pokemon.id
+    //     // })
+    //     this.pokemonABuscar = this.pokemonesSalvajes.filter(function (poke) {
+    //         return poke.id == pokemon.id
+    //     })[0]
+    //     return this.pokemonesSalvajes.indexOf(this.pokemonABuscar)
+    // }
+
+    // addSalvaje(pokemon) {
+    //     pokemon.id = this.idGenerate
+    //     this.pokemonesSalvajes.push(pokemon)
+    //     this.idGenerate++
+    // }
 
 
 

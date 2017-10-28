@@ -14,9 +14,40 @@
                 <tr>
                     <td>{{pokemon.especie.nombre}}</td>
                     <td>{{pokemon.nivel}}</td>
-                    <td class="fuentePokemon" ng-click="pokemonesSalvajes.capturar(pokemon)">Capturar</td>
+                    <!-- <td class="fuentePokemon" ng-click="pokemonesSalvajes.capturar(pokemon)">Capturar</td> -->
+                    <td>
+                        <button class="fuentePokemon" data-toggle="modal" data-target="#myModal" ng-click="Oponente.seleccionarSalvaje(pokemon)">Capturar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title usaFuentePokemon">Elige Tu Pokemon</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <table>
+                            <td>
+                                <select ng-model="Oponente.player.pokemonElegido" ng-options="pokemon.especie.nombre for pokemon in Oponente.player.pokemonesCapturados">
+                                </select>
+                            </td>
+                            <td class="fuentePokemon" style="margin-left: 10%; position: absolute;">Usted Elige El Pokemon:</td>
+                            <td class="fuentePokemon" style="margin-left: 40%; position: absolute;">{{Oponente.player.pokemonElegido.especie.nombre}}</td>
+                        </table>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal" ng-click="Oponente.battle()">Battle</button>
+                    <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ class Pokemon {
 	double chancesDeGanar = 0d
 	var int saludActual
 	var Entrenador propietario
-	
+
 	// OBTNER NIVEL 
 	def nivel() {
 		((Math.sqrt(100 * (2 * experiencia + 25)) + 50) / 100).intValue()
@@ -49,8 +49,9 @@ class Pokemon {
 	def curacionCompletaSaludActual() {
 		saludActual = calcularPuntosDeSalud()
 	}
-	def siSuperaLaMaximaAcondicionar(){
-		if(saludActual>calcularPuntosDeSalud){
+
+	def siSuperaLaMaximaAcondicionar() {
+		if (saludActual > calcularPuntosDeSalud) {
 			curacionCompletaSaludActual()
 		}
 	}
@@ -59,19 +60,19 @@ class Pokemon {
 		saludActual += pocion.recuperacion(this)
 		siSuperaLaMaximaAcondicionar()
 	}
-	
-	def curarPokemon(MaxPocion mPocion){
-		mPocion.recuperacion(this)		
+
+	def curarPokemon(MaxPocion mPocion) {
+		mPocion.recuperacion(this)
 	}
 
 	def recibirDaño(int dañoRecibido) {
 		saludActual -= dañoRecibido
 
 	}
-	def noTieneSaludAlMaximo(){
-		if(saludActual ==calcularPuntosDeSalud()) throw new BusinessException("La salud esta al maximo")
-		else true
-		
+
+	def noTieneSaludAlMaximo() {
+		if(saludActual == calcularPuntosDeSalud()) throw new BusinessException("La salud esta al maximo") else true
+
 	}
 
 	// EVOLUCION
@@ -79,8 +80,7 @@ class Pokemon {
 		especie = especieNueva
 		propietario.tipoDeEntrenador.experienciaPorEvolucionAdicional(this)
 		propietario.sumarEvolucionesRealizadas
-		}
-	
+	}
 
 	// RESISTENCIA Y DEBILIDADES
 	def fuerteFrenteA(Pokemon pokemonRival) {
@@ -91,18 +91,17 @@ class Pokemon {
 		especie.esResistenteA(pokemonRival)
 
 	}
-	
-	def esMacho(){
+
+	def esMacho() {
 		genero.esMacho()
 	}
-	
-	//CHANCES COMBATE
-	
-		//CHANCES
-	def  chancesContra(Pokemon pokemonRival) {
+
+	// CHANCES COMBATE
+	// CHANCES
+	def chancesContra(Pokemon pokemonRival) {
 		var double ataqueChancePokemon = calcularPuntosDeAtaque()
-		ataqueChancePokemon*= chancesPokemonFortaleza(pokemonRival)
-		ataqueChancePokemon*=chancesPokemonResistencia(pokemonRival)
+		ataqueChancePokemon *= chancesPokemonFortaleza(pokemonRival)
+		ataqueChancePokemon *= chancesPokemonResistencia(pokemonRival)
 		ataqueChancePokemon
 	}
 
@@ -111,21 +110,20 @@ class Pokemon {
 		val double adicionalSiEsFuerte = 1.25
 		if (fuerteFrenteA(_pokemonRival)) {
 			adicionalSiEsFuerte
+		} else {
+			adicionalSiNoEsFuerte
 		}
-		else{adicionalSiNoEsFuerte}
-	
+
 	}
 
-	def chancesPokemonResistencia( Pokemon _pokemonRival) {
+	def chancesPokemonResistencia(Pokemon _pokemonRival) {
 		val adicionalSiNoEsResistente = 1
 		val double adicionalSiEsResistente = 1.15
 		if (resistenteFrenteA(_pokemonRival)) {
 
 			adicionalSiEsResistente
-		}
-		else(adicionalSiNoEsResistente)
+		} else
+			(adicionalSiNoEsResistente)
 	}
 
-	
-	
 }

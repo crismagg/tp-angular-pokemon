@@ -8,29 +8,54 @@
                         <th>Pok&eacute;mon</th>
                         <th>Apuesta</th>
                         <th></th>
-                        <th>Resultado</th>
                     </tr>
                 </thead>
-                <tbody >
-                    <tr ng-repeat="oponente in Oponente.oponentes" ng-show="Oponente.proximidad(oponente)" class ="ng-hide">
+                <tbody>
+                    <tr ng-repeat="oponente in Oponente.oponentes" ng-show="Oponente.proximidad(oponente)" class="ng-hide">
                         <td>{{oponente.nombre}}</td>
-                        <!-- <td>lelo</td> -->
                         <td>{{Oponente.player.dinero}}</td>
-                        <!-- <td>{{oponente.especiesCapturadas[0].nombre +" niv. "+ oponente.especiesCapturadas[0].nivel }}</td> -->
                         <td>
                             <input type="number" class="numberField" ng-model="Oponente.player.apuesta">
                         </td>
-                        <td class="fuentePokemon" ng-click="Oponente.battle()">Battle
-                        </td>   
-                        <td class="fuentePokemon" ng-bind="Oponente.oponente.victoria"></td>
+                        <td>
+                            <button class="fuentePokemon" data-toggle="modal" data-target="#myModal" ng-click="Oponente.seleccionar(oponente)">Battle</button>
+                        </td>
                     </tr>
                 </tbody>
-
             </table>
+            <span ng-hide="Oponente.resultadoBatalla == null"><p class="usaFuentePokemon">RESULTADO: <span>{{Oponente.resultadoBatalla.resultado}}</span> <span>{{Oponente.resultadoBatalla.contrincante}}</span>. </p></span>
         </div>
 
 
     </div>
     <br>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title usaFuentePokemon">Elige Tu Pokemon</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <table>
+                            <td>
+                                <select ng-model="Oponente.player.pokemonElegido" ng-options="pokemon.especie.nombre for pokemon in Oponente.player.pokemonesCapturados">
+                                </select>
+                            </td>
+                            <td class="fuentePokemon" style="margin-left: 10%; position: absolute;">Usted Elige El Pokemon:</td>
+                            <td class = "fuentePokemon" style="margin-left: 40%; position: absolute;">{{Oponente.player.pokemonElegido.especie.nombre}}</td>
+                        </table>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal" ng-click="Oponente.battle()">Battle</button>
+                    <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </div>

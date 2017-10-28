@@ -12,6 +12,7 @@ class Entrenador {
         this.dinero
         this.apuesta = 0
         this.victoria
+        this.pokemonElegido
         // this.distanciaCercana = 0.001
         this.calcularNivel()
     }
@@ -41,30 +42,45 @@ class Entrenador {
         return angular.extend(new Entrenador(), jsonEntrenador)
     }
 
-    esCercano(oponente) {
-        return Math.abs(Math.abs(oponente.coordenadaActual.x) - Math.abs(this.coordenadaActual.x)) <= this.distanciaCercana &&
-            Math.abs(Math.abs(oponente.coordenadaActual.y) - Math.abs(this.coordenadaActual.y)) <= this.distanciaCercana
+    esCercano(coordenada) {
+        return Math.abs(Math.abs(coordenada.x) - Math.abs(this.coordenadaActual.x)) <= this.distanciaCercana &&
+            Math.abs(Math.abs(coordenada.y) - Math.abs(this.coordenadaActual.y)) <= this.distanciaCercana
     }
 
     batallar(oponente) {
-        if (this.ganarBatalla()) {
+        var result = this.ganarBatalla()
+        if (result) {
             if (this.apuesta != null && this.apuesta > 0) {
 
                 this.dinero += this.apuesta
-                this.apuesta=0
+                this.apuesta = 0
             }
         }
+        return result
     }
 
     ganarBatalla(oponente) {
         return true
         // return Math.random() <=
-        //     (this.pokemonElegido.chanceVictoria() / (this.pokemonElegido.chanceVictoria() + oponente.pokemonElegido.chanceVictoria()))
+        //     (this.pokemonElegido.chancesVictoria() / (this.pokemonElegido.chancesVictoria() + oponente.pokemonElegido.chancesVictoria()))
     }
-    capturar(pokemon){
-        if(this.capturaPokemon){
-            this.pokemonesCapturados.push(pokemon)
+    capturar(pokemon) {
+        if (this.capturaPokemon()) {
+            this.pokemonesCapturados.push(this.nuevoPokemon(pokemon))
         }
+    }
+
+    nuevoPokemon(pokemon) {
+        var poke = new Pokemon()
+        // poke.experiencia = 0
+        poke.especie = pokemon.especie
+        poke.propietario = pokemon.propietario
+        // poke.velocidad = pokemon.velocidad
+        // poke.nombre = pokemon.nombre
+        // poke.genero = pokemon.genero
+        // poke.salud = pokemon.salud
+        return poke
+
     }
     capturaPokemon(pokemon) {
         return true
