@@ -20,22 +20,29 @@ class Pokeball implements Item {
 	String nombre
 	int costo
 	double chance
+	int cantidad = 0
 
 	new(int _costo, double _chance) {
 		costo = _costo
 		chance = _chance
 	}
-	new(int _costo, double _chance,String nomb) {
+
+	new(int _costo, double _chance, String nomb) {
 		costo = _costo
 		chance = _chance
 		nombre = nomb
 	}
 
-
 	override nombre() { nombre }
 
 	override costo() {
 		costo
+	}
+
+	def usar() {
+		if (cantidad > 0) {
+			cantidad -= 1
+		}
 	}
 
 }
@@ -51,7 +58,8 @@ class PocionNormal implements Pocion {
 		costo = _costo
 		recuperacion = _recupera
 	}
-	new(int _costo, int _recupera,String nomb) {
+
+	new(int _costo, int _recupera, String nomb) {
 		costo = _costo
 		recuperacion = _recupera
 		nombre = nomb
@@ -79,7 +87,6 @@ class MaxPocion implements Pocion {
 	override costo() {
 		costo
 	}
-
 
 	override nombre() { nombre }
 

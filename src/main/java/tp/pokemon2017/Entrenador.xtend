@@ -31,7 +31,7 @@ class Entrenador {
 	@JsonIgnore Bolso bolso
 	@JsonIgnore Combate combate
 	@JsonIgnore Pokemon pokemonElegido
-
+	Pokeball pokeballs = new Pokeball(80,1)
 //ENTREGA 4
 	@JsonIgnore List<Accion> acciones = newArrayList
 	@JsonIgnore List<Entrenador> amistades = newArrayList
