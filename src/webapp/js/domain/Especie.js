@@ -7,6 +7,13 @@ class Especie {
 
     }
 
+    static asEspecie(especieJson){
+        var tiposTemp = _.map(especieJson.tipos,TipoEspecie.asTipo())
+        var especieTemp = angular.extend(new Especie(),especie)
+        especieTemp.tipos = tiposTemp 
+        return especieTemp
+    }
+
     esFuerteA(especie) {
         return this.tipos.some(function (element) {
 

@@ -1,10 +1,13 @@
 class TipoEspecie {
-    constructor(_nombre,_resistente, _fuerte) { 
-        this.nombre = _nombre
-        this.resistente = _resistente
-        this.fuerte = _fuerte
+    constructor() {
+        this.nombre
+        this.resistente
+        this.fuerte
     }
 
+    static asTipo(tipo) {
+        return angular.extend(new TipoEspecie(), tipo)
+    }
     fortaleza(tiposRival) {
         var fuertes = this.fuerte
         return tiposRival.some(function (tipo) {

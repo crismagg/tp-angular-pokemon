@@ -8,6 +8,13 @@ class Pokemon {
         this.genero
         this.saludActual
     }
+
+    static transformarAPokemon(pokemonJson) {
+        var especieTemp = _.map(pokemonJson.especie,Especie.asEspecie())
+        var pokemonTemp = angular.extend(new Pokemon(),pokemonJson)
+        pokemonTemp.especie = especieTemp
+        return pokemonTemp
+    }
     get nivel() {
         return Math.floor((Math.sqrt(100 * (2 * this.experiencia + 25)) + 50) / 100)
     }
@@ -68,7 +75,7 @@ class Pokemon {
         }
         return noExperto
     }
-    curarCompleto(){
-        this.saludActual = this.salud()
+    curarCompleto() {
+        this.saludActual = this.puntosDeSalud()
     }
 }

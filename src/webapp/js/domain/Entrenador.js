@@ -4,16 +4,15 @@ class Entrenador {
         this.nivel
         this.nivelMaximo = 20
         this.experiencia = 0;
-        this.pokemonesCapturados = []
-        this.tablaDeNiveles = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 65000, 75000, 85000, 100000, 120000, 140000, 160000, 185000, 210000]
         this.esExperto
+        this.pokemonesCapturados = []
         this.coordenadaActual
-        this.victorias
         this.dinero
+        this.pokeballs
+        this.victorias
         this.apuesta = 0
-        this.victoria
+        // this.victoria
         this.pokemonElegido
-        // this.distanciaCercana = 0.001
         this.calcularNivel()
     }
 
@@ -23,10 +22,10 @@ class Entrenador {
         this.experiencia += experienciaGanada
         this.calcularNivel()
     }
-    // get pokemonElegido(){
-    //     return pokemonCapturado[0]
-    // }
-
+        
+    get tablaDeNiveles() {
+        return [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 65000, 75000, 85000, 100000, 120000, 140000, 160000, 185000, 210000]
+    }
     get distanciaCercana() {
         return 0.001
     }
@@ -39,6 +38,11 @@ class Entrenador {
     }
 
     static asEntrenador(jsonEntrenador) {
+        // var especieTemp = []
+        // jsonEntrenador.pokemonesCapturados.forEach(function(especie){
+        //     especieTemp.push(Especie.asEspecie(especie))
+        // })
+        var pokemones = _.map(jsonEntrenador.pokemonesCapturados, Pokemon.transformarAPokemon)
         return angular.extend(new Entrenador(), jsonEntrenador)
     }
 

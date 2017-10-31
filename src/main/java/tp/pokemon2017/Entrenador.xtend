@@ -31,7 +31,7 @@ class Entrenador {
 	@JsonIgnore Bolso bolso
 	@JsonIgnore Combate combate
 	@JsonIgnore Pokemon pokemonElegido
-	Pokeball pokeballs = new Pokeball(80,1)
+	Pokeball pokeballs = new Pokeball(80,1) =>[cantidad = 5]
 //ENTREGA 4
 	@JsonIgnore List<Accion> acciones = newArrayList
 	@JsonIgnore List<Entrenador> amistades = newArrayList
@@ -39,6 +39,7 @@ class Entrenador {
 	@JsonIgnore List<Entrenador> entrenadoresNotificados = newArrayList
 	@JsonIgnore List<String> notificaciones = newArrayList
 	@JsonIgnore CasillaDeCorreo casilla
+	@JsonIgnore int apuesta
 
 //ENTREGA 4
 	new(HashMap experienciaPorNivel, int maxLvl) {
