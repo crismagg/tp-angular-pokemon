@@ -52,6 +52,7 @@ class OponenteController {
         if (mote == null) {
             mote = this.pokemonSeleccionado.especie.nombre
         }
+        this.nuevoMote = null
         this.pokemonSeleccionado.nombre = mote
         this.player.agregarAlEquipo(this.pokemonSeleccionado)
     }

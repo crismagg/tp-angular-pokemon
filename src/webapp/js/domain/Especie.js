@@ -3,13 +3,15 @@ class Especie {
         this.tipos = _tipos
         this.ataqueBasico = _atkBasico
         this.nombre = _nombre
+        this.velocidad
         this.imagen
 
     }
 
     static asEspecie(especieJson){
-        var tiposTemp = _.map(especieJson.tipos,TipoEspecie.asTipo())
-        var especieTemp = angular.extend(new Especie(),especie)
+        console.log(especieJson.tipos)
+        var tiposTemp = _.map(especieJson.tipos.data,TipoEspecie.asTipo)
+        var especieTemp = angular.extend(new Especie(),especieJson)
         especieTemp.tipos = tiposTemp 
         return especieTemp
     }

@@ -1,11 +1,13 @@
 class Entrenador {
     constructor() {
         this.nombre
-        this.nivel
+        this.nivel = 0
         this.nivelMaximo = 20
         this.experiencia = 0;
         this.esExperto
+        this.equipoPokemon
         this.pokemonesCapturados = []
+        this.llenarPokemonesCapturados()
         this.coordenadaActual
         this.dinero
         this.pokeballs
@@ -22,7 +24,11 @@ class Entrenador {
         this.experiencia += experienciaGanada
         this.calcularNivel()
     }
-        
+
+    llenarPokemonesCapturados() {
+        this.pokemonesCapturados = this.equipoCapturados
+    }
+
     get tablaDeNiveles() {
         return [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 65000, 75000, 85000, 100000, 120000, 140000, 160000, 185000, 210000]
     }
@@ -38,12 +44,12 @@ class Entrenador {
     }
 
     static asEntrenador(jsonEntrenador) {
-        var pokemones = _.map(jsonEntrenador.pokemonesCapturados, Pokemon.transformarAPokemon)
+        var pokemones = _.map(jsonEntrenador.equipoPokemon.data, Pokemon.transformarAPokemon)
         var pokeball = Pokeball.asPokeball(jsonEntrenador.pokeballs)
         var entrenadorTemp = angular.extend(new Entrenador(), jsonEntrenador)
         entrenadorTemp.pokemonesCapturados = pokemones
         entrenadorTemp.pokeballs = pokeball
-        return entrenadorTemp 
+        return entrenadorTemp
     }
 
     esCercano(coordenada) {
@@ -69,32 +75,37 @@ class Entrenador {
         //     (this.pokemonElegido.chancesVictoria() / (this.pokemonElegido.chancesVictoria() + oponente.pokemonElegido.chancesVictoria()))
     }
     capturar(pokemon) {
-        return true
-        // return Math.random() <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar())
+        // return true
+        this.pokeballs.usar()
+        var randomizer = Math.random()
+        return randomizer <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar)
     }
     agregarAlEquipo(pokemon) {
-        this.pokeballs.usar()
         this.pokemonesCapturados.push(this.nuevoPokemon(pokemon))
     }
 
     nuevoPokemon(pokemon) {
         var poke = new Pokemon()
-        // poke.experiencia = 0
+        poke.experiencia = pokemon.experiencia
         poke.especie = pokemon.especie
         poke.propietario = pokemon.propietario
-        // poke.velocidad = pokemon.velocidad
         poke.nombre = pokemon.nombre
         // poke.genero = pokemon.genero
         // poke.salud = pokemon.salud
         return poke
 
     }
-    hayPokeballs(){
-        return this.pokeballs.cantidad >0
+    hayPokeballs() {
+        return this.pokeballs.cantidad > 0
     }
 
     chancesCapturar() {
-        return this.nivel
+        var experto = 1
+        if (this.esExperto) {
+            experto = 1, 5
+        }
+
+        return this.nivel * experto
     }
 
 

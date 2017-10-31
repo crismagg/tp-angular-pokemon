@@ -7,11 +7,6 @@ class EntrenadorController {
         }
         
 
-        // getPlayer() {
-        //     this.oponenteService.findPlayer((response) => {
-        //         this.player = Entrenador.asEntrenador(response.data)
-        //     })
-        // }
         get player() {
             return this.oponenteService.player
         }

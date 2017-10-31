@@ -5,7 +5,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
 class TipoDePokemon {
-	String tipo
+	String nombre
 	Collection<TipoDePokemon> resistente = newArrayList
 	Collection<TipoDePokemon> fuerte = newArrayList
 

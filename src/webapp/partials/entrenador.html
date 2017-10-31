@@ -27,21 +27,14 @@
                         <table class="table">
                             <tr>
                                 <th>Pok&eacute;mon</th>
+                                <th>Especie</th>
                                 <th>Nivel</th>
-                                <th>Selecci&oacute;n</th>
-                                <th>Detalles</th>
                             </tr>
                             <tr>
                                 <tr ng-repeat="pokemon in entrenador.player.pokemonesCapturados" ng-click="entrenador.seleccionar(pokemon)">
                                     <td>{{pokemon.nombre}}</td>
                                     <td>{{pokemon.especie.nombre}}</td>
                                     <td>{{pokemon.nivel}}</td>
-                                    <td>
-                                      <span ng-click="setEquipoPokemon(pokemon)" </span>
-                                    </td>
-                                    <td>
-                                        <img ng-click="setPokemonSeleccionado(pokemon)" ng-src="img/pokebola-seleccionado.png" height="25px" width="25px">
-                                    </td>
                                   </tr>
                             </tr>
                             </tr>

@@ -48,11 +48,13 @@ class OponenteService {
 
         pikachu = new Especie('Pikachu', [electricidad, agua], 10)
         pikachu.imagen = "img/PIKACHU.png"
+        pikachu.velocidad = 8
         charmander = new Especie('Charmander', [fuego], 20)
         charmander.imagen = "https://vignette2.wikia.nocookie.net/es.pokemon/images/b/be/Charmander_%28anime_SO%29.png/revision/latest?cb=20120906002506"
+        charmander.velocidad = 4
         pokemon1 = new Pokemon(pikachu, entrenador1)
+        pokemon1.experiencia = 20000
         pokemon2 = new Pokemon(charmander, entrenador2)
-
         this.pokemonesSalvajes.push(pokemon1)
         this.pokemonesSalvajes.push(pokemon2)
     }
@@ -61,51 +63,6 @@ class OponenteService {
         var pos = this.pokemonArrayId(pokemon)
         this.borrar(pos)
 
-        // if (pos > 0) {
-        //     this.pokemonesSalvajes.splice(pos-1, 1)
-        //     console.log(this.pokemonesSalvajes)
-        // }
-        // else if(pos == 0){
-        //     this.pokemonesSalvajes.splice(pos, 1)
-        // }
-        
     }
-    // borrar(posicion){
-    //     if(posicion == 0){
-    //         var eliminado =this.pokemonesSalvajes.shift()
-    //     }
-    //     else {
-    //         var eliminado = this.pokemonesSalvajes.slice(posicion-1,1)
-    //     }
-
-    //     // var tempArray = []
-    //     // delete array[posicion]
-    //     // array.forEach(function(poke){
-    //     //     if(poke == undefined){
-    //     //     }else{
-    //     //         tempArray.push(poke)
-    //     //     }
-    //     // })
-    //     // this.pokemonesSalvajes = tempArray
-    // }
-    
-
-    // pokemonArrayId(pokemon) {
-    //     // return this.pokemonesSalvajes.indexOf(function (_pokemon) {
-    //     //     return _pokemon.id == pokemon.id
-    //     // })
-    //     this.pokemonABuscar = this.pokemonesSalvajes.filter(function (poke) {
-    //         return poke.id == pokemon.id
-    //     })[0]
-    //     return this.pokemonesSalvajes.indexOf(this.pokemonABuscar)
-    // }
-
-    // addSalvaje(pokemon) {
-    //     pokemon.id = this.idGenerate
-    //     this.pokemonesSalvajes.push(pokemon)
-    //     this.idGenerate++
-    // }
-
-
 
 }

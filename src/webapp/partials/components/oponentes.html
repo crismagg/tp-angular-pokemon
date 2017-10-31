@@ -13,7 +13,7 @@
                 <tbody>
                     <tr ng-repeat="oponente in Oponente.oponentes" ng-show="Oponente.proximidad(oponente)" class="ng-hide">
                         <td>{{oponente.nombre}}</td>
-                        <td>{{Oponente.player.dinero}}</td>
+                        <td>{{oponente.pokemonesCapturados[0].especie.nombre}}</td>
                         <td>
                             <input type="number" class="numberField" ng-model="Oponente.player.apuesta">
                         </td>

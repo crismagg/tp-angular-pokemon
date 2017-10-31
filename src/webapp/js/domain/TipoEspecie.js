@@ -6,7 +6,7 @@ class TipoEspecie {
     }
 
     static asTipo(tipo) {
-        return angular.extend(new TipoEspecie(), tipo)
+        return angular.extend(new TipoEspecie(), tipo.data)
     }
     fortaleza(tiposRival) {
         var fuertes = this.fuerte

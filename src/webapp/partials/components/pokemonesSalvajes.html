@@ -8,13 +8,10 @@
                     <th></th>
                 </tr>
             </thead>
-            <!-- <tbody ng-controller="pokemonController as PkmCtrl">
-                <tr ng-repeat="especie in PkmCtrl.especies"> -->
             <tbody ng-repeat="pokemon in pokemonesSalvajes.pokemonesSalvajes">
                 <tr>
                     <td>{{pokemon.especie.nombre}}</td>
                     <td>{{pokemon.nivel}}</td>
-                    <!-- <td class="fuentePokemon" ng-click="pokemonesSalvajes.capturar(pokemon)">Capturar</td> -->
                     <td>
                         <button class="fuentePokemon" data-toggle="modal" data-target="#pokemonesSalvajes" ng-click="pokemonesSalvajes.seleccionarSalvaje(pokemon)">Capturar</button>
                     </td>
@@ -40,7 +37,7 @@
                             <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal" ng-click="pokemonesSalvajes.nombrar()">Nombrar</button>
                         </div>
                         <div ng-show="pokemonesSalvajes.pokemonNoCapturado()">
-                            <b class="fuentePokemon" style="font-size:2em">El Pokemon ha huido... </b> (imagen de lamento)
+                            <b class="fuentePokemon" style="font-size:2em">El Pokemon ha huido... </b> <img src="img/pikachu-enojado.jpg" height="200em" width="200em" >
                         </div>
                         <div ng-show="pokemonesSalvajes.noTienePokebola()">
                             <b class="fuentePokemon" style="font-size:2em">No tienes Pokebolas</b>

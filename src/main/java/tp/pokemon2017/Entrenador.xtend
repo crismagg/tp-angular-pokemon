@@ -21,7 +21,7 @@ class Entrenador {
 	Point coordenadaActual
 	@JsonIgnore val HashMap tablaDeNiveles
 	@JsonIgnore List<Especie> especiesAtrapadas = new ArrayList()
-	@JsonIgnore Collection<Pokemon> equipoPokemon = new ArrayList()
+	Collection<Pokemon> equipoPokemon = new ArrayList()
 	@JsonIgnore Collection<Pokemon> depositoPokemon = new ArrayList()
 	@JsonIgnore TipoDeEntrenador tipoDeEntrenador
 	@JsonIgnore public static var random = [|return Math.random]
