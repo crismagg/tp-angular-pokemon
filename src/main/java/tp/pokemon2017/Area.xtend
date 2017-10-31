@@ -98,7 +98,7 @@ class Area {
 		pokemones.add(
 			new Pokemon => [
 				especie = _especie
-				puntoGeografico = randomUbicacion
+				coordenadaActual = randomUbicacion
 			]
 		)
 	}

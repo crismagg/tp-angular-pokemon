@@ -3,10 +3,7 @@ const pokeparadasComponent = {
 
     },
     controllerAs: "pokeparadasCtrl",
-    controller: class PokeparadasController {
-        constructor() {
-
-        }
-    },
+    controller: "pokeparadaController"
+    ,
     templateUrl: 'partials/components/pokeparadas.html'
 }

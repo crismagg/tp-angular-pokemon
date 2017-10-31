@@ -6,10 +6,9 @@ import org.uqbar.geodds.Point
 @Accessors
 class Pokemon {
 	int idPokemon
-	var int experiencia
-	var int nivel
+	var int experiencia = 0
 	Especie especie
-	Point puntoGeografico
+	Point coordenadaActual
 	Genero genero
 	double chancesDeGanar = 0d
 	var int saludActual
@@ -30,7 +29,7 @@ class Pokemon {
 	}
 
 	def distanciaAlPunto(Point otroPunto) {
-		puntoGeografico.distance(otroPunto)
+		coordenadaActual.distance(otroPunto)
 	}
 
 	def double calcularPuntosDeAtaque() {

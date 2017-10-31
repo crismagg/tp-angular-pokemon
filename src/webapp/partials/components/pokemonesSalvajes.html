@@ -16,34 +16,39 @@
                     <td>{{pokemon.nivel}}</td>
                     <!-- <td class="fuentePokemon" ng-click="pokemonesSalvajes.capturar(pokemon)">Capturar</td> -->
                     <td>
-                        <button class="fuentePokemon" data-toggle="modal" data-target="#myModal" ng-click="Oponente.seleccionarSalvaje(pokemon)">Capturar</button>
+                        <button class="fuentePokemon" data-toggle="modal" data-target="#pokemonesSalvajes" ng-click="pokemonesSalvajes.seleccionarSalvaje(pokemon)">Capturar</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div class="modal fade" id="myModal" role="dialog">
+
+    <!-- MODAL -->
+    <div class="modal fade" id="pokemonesSalvajes" role="dialog">
         <div class="modal-dialog">
 
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title usaFuentePokemon">Elige Tu Pokemon</h4>
+                    <h4 class="modal-title usaFuentePokemon">CAPTURA</h4>
                 </div>
                 <div class="modal-body">
                     <p>
-                        <table>
-                            <td>
-                                <select ng-model="Oponente.player.pokemonElegido" ng-options="pokemon.especie.nombre for pokemon in Oponente.player.pokemonesCapturados">
-                                </select>
-                            </td>
-                            <td class="fuentePokemon" style="margin-left: 10%; position: absolute;">Usted Elige El Pokemon:</td>
-                            <td class="fuentePokemon" style="margin-left: 40%; position: absolute;">{{Oponente.player.pokemonElegido.especie.nombre}}</td>
-                        </table>
+                        <div ng-show="pokemonesSalvajes.pokemonCapturado()">
+                            <b class="fuentePokemon" style="font-size:2em">Selecciona un Mote para El Pokemon</b>
+                            <input type="text" ng-model="pokemonesSalvajes.nuevoMote">
+                            <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal" ng-click="pokemonesSalvajes.nombrar()">Nombrar</button>
+                        </div>
+                        <div ng-show="pokemonesSalvajes.pokemonNoCapturado()">
+                            <b class="fuentePokemon" style="font-size:2em">El Pokemon ha huido... </b> (imagen de lamento)
+                        </div>
+                        <div ng-show="pokemonesSalvajes.noTienePokebola()">
+                            <b class="fuentePokemon" style="font-size:2em">No tienes Pokebolas</b>
+                        </div>
+
                     </p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal" ng-click="Oponente.battle()">Battle</button>
+                <div class="modal-footer" ng-show="pokemonesSalvajes.noTienePokebola() || !pokemonesSalvajes.resultadoCaptura">
                     <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

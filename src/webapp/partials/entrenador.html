@@ -33,6 +33,7 @@
                             </tr>
                             <tr>
                                 <tr ng-repeat="pokemon in entrenador.player.pokemonesCapturados" ng-click="entrenador.seleccionar(pokemon)">
+                                    <td>{{pokemon.nombre}}</td>
                                     <td>{{pokemon.especie.nombre}}</td>
                                     <td>{{pokemon.nivel}}</td>
                                     <td>
@@ -77,9 +78,9 @@
                 <div id="container-descripcion-pokemon">
                     <div class="descripcion-pokemon">
                         <ul>
+                            <li>Nombre:<span ng-bind="entrenador.pokemonSeleccionado.nombre"></span></li>
                             <li>Especie:<span ng-bind="entrenador.pokemonSeleccionado.especie.nombre"></span></li>
                             <li>Tipo:<span ng-bind="entrenador.pokemonSeleccionado.especie.tipo"></span></li>
-                            <li>Nombre:<span ng-bind="entrenador.pokemonSeleccionado.especie.nombre"></span></li>
                             <!-- <li>Nivel:<span ng-bind="entrenador.pokemonSeleccionado.nivel"></span></li> -->
                             <!-- <li>Experiencia:<span ng-bind="entrenador.pokemonSeleccionado.experiencia"></span></li> -->
                             <!-- <li>G&eacute;nero:<span ng-bind="entrenador.pokemonSeleccionado.genero"></span></li> -->

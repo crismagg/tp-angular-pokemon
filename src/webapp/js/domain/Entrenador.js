@@ -65,9 +65,11 @@ class Entrenador {
         //     (this.pokemonElegido.chancesVictoria() / (this.pokemonElegido.chancesVictoria() + oponente.pokemonElegido.chancesVictoria()))
     }
     capturar(pokemon) {
-        if (this.capturaPokemon()) {
-            this.pokemonesCapturados.push(this.nuevoPokemon(pokemon))
-        }
+        return true
+        // return Math.random() <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar())
+    }
+    agregarAlEquipo(pokemon) {
+        this.pokemonesCapturados.push(this.nuevoPokemon(pokemon))
     }
 
     nuevoPokemon(pokemon) {
@@ -76,15 +78,11 @@ class Entrenador {
         poke.especie = pokemon.especie
         poke.propietario = pokemon.propietario
         // poke.velocidad = pokemon.velocidad
-        // poke.nombre = pokemon.nombre
+        poke.nombre = pokemon.nombre
         // poke.genero = pokemon.genero
         // poke.salud = pokemon.salud
         return poke
 
-    }
-    capturaPokemon(pokemon) {
-        return true
-        // return Math.random() <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar())
     }
 
     chancesCapturar() {

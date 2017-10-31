@@ -6,7 +6,7 @@ class Pokemon {
         this.velocidad
         this.nombre
         this.genero
-        this.salud
+        this.saludActual
     }
     get nivel() {
         return Math.floor((Math.sqrt(100 * (2 * this.experiencia + 25)) + 50) / 100)
@@ -67,5 +67,8 @@ class Pokemon {
             return experto
         }
         return noExperto
+    }
+    curarCompleto(){
+        this.saludActual = this.salud()
     }
 }

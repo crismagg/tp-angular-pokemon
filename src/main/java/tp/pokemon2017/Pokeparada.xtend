@@ -1,10 +1,10 @@
 package tp.pokemon2017
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.geodds.Point
 import org.uqbar.commons.model.annotations.TransactionalAndObservable
-import org.uqbar.commons.model.Entity
+import org.uqbar.geodds.Point
 
 @Accessors
 @TransactionalAndObservable
@@ -12,7 +12,7 @@ class Pokeparada {
 	int numeroID
 	String nombre
 	Point ubicacion
-	var List<Item> itemsDisponibles
+	@JsonIgnore var List<Item> itemsDisponibles
 
 //------ ENTEGA 2 -----------
  	def validar(){

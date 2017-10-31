@@ -9,12 +9,14 @@ class OponenteController {
         this.pokemonBatalla
         this.oponenteBatalla
         this.resultadoBatalla
+        this.resultadoCaptura
+        this.nuevoMote
     }
-    get distanciaCercana(){
+    get distanciaCercana() {
         return 0.001
     }
-    get distanciaAAvanzar(){
-       return 0.001
+    get distanciaAAvanzar() {
+        return 0.001
     }
     get player() {
         return this.oponenteService.player
@@ -36,15 +38,39 @@ class OponenteController {
         return this.player.esCercano(objeto.coordenadaActual)
     }
     battle() {
-        this.resultadoBatalla = new Resultado(this.player.pokemonElegido.especie.nombre,this.oponenteBatalla,this.player.batallar(this.oponenteBatalla))
+        this.resultadoBatalla = new Resultado(this.player.pokemonElegido.especie.nombre, this.oponenteBatalla, this.player.batallar(this.oponenteBatalla))
     }
     seleccionar(oponente) {
         this.oponenteBatalla = oponente
     }
-    capturar(pokemon) {
-        this.player.capturar(pokemon)
+    capturar() {
+        this.resultadoCaptura = this.player.capturar(this.pokemonSeleccionado)
     }
-    elegirPokemonBatalla(pokemon){
+    nombrar() {
+        var mote = this.nuevoMote
+
+        if (mote == null) {
+            mote = this.pokemonSeleccionado.especie.nombre
+        }
+        this.pokemonSeleccionado.nombre = mote
+        this.player.agregarAlEquipo(this.pokemonSeleccionado)
+    }
+    elegirPokemonBatalla(pokemon) {
         this.pokemonBatalla = pokemon
     }
-} 
+
+    seleccionarSalvaje(pokemon) {
+        this.pokemonSeleccionado = pokemon
+        this.capturar()
+    }
+    noTienePokebola(){
+        return false
+    }
+    pokemonCapturado(){
+        return !this.noTienePokebola() && this.resultadoCaptura
+    }
+    pokemonNoCapturado(){
+        return !this.noTienePokebola() && !this.resultadoCaptura
+    }
+
+}
