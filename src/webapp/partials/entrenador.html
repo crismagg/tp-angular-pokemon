@@ -59,10 +59,10 @@
                                 <th>Cantidad</th>
                             </tr>
                             <tr>
-                            <tr ng-repeat="item in entrenador.entrenador.items">
-                                <div ng-if="item.cantidad > 0">
-                                     <td>{{item.nombre}}</td>
-                                     <td>{{item.cantidad}}</td>
+                            <tr>
+                                <div ng-if="entrenador.player.pokeballs > 0">
+                                     <td>{{entrenador.player.pokeballs.nombre}}</td>
+                                     <td>{{entrenador.player.pokeballs.cantidad}}</td>
                                 </div>
                             </tr>
                         </table>

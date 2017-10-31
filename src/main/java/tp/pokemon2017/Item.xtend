@@ -17,7 +17,7 @@ interface Pocion extends Item {
 
 @Accessors
 class Pokeball implements Item {
-	String nombre
+	String nombre = "Pokeball"
 	int costo
 	double chance
 	int cantidad = 0

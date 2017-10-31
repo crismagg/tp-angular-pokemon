@@ -64,7 +64,7 @@ class OponenteController {
         this.capturar()
     }
     noTienePokebola(){
-        return false
+        return !this.player.hayPokeballs()
     }
     pokemonCapturado(){
         return !this.noTienePokebola() && this.resultadoCaptura

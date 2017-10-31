@@ -38,12 +38,12 @@ class Entrenador {
     }
 
     static asEntrenador(jsonEntrenador) {
-        // var especieTemp = []
-        // jsonEntrenador.pokemonesCapturados.forEach(function(especie){
-        //     especieTemp.push(Especie.asEspecie(especie))
-        // })
         var pokemones = _.map(jsonEntrenador.pokemonesCapturados, Pokemon.transformarAPokemon)
-        return angular.extend(new Entrenador(), jsonEntrenador)
+        var pokeball = Pokeball.asPokeball(jsonEntrenador.pokeballs)
+        var entrenadorTemp = angular.extend(new Entrenador(), jsonEntrenador)
+        entrenadorTemp.pokemonesCapturados = pokemones
+        entrenadorTemp.pokeballs = pokeball
+        return entrenadorTemp 
     }
 
     esCercano(coordenada) {
@@ -73,6 +73,7 @@ class Entrenador {
         // return Math.random() <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar())
     }
     agregarAlEquipo(pokemon) {
+        this.pokeballs.usar()
         this.pokemonesCapturados.push(this.nuevoPokemon(pokemon))
     }
 
@@ -87,6 +88,9 @@ class Entrenador {
         // poke.salud = pokemon.salud
         return poke
 
+    }
+    hayPokeballs(){
+        return this.pokeballs.cantidad >0
     }
 
     chancesCapturar() {
