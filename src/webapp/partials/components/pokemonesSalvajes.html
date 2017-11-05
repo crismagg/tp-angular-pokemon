@@ -8,7 +8,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody ng-repeat="pokemon in pokemonesSalvajes.pokemonesSalvajes">
+            <tbody ng-repeat="pokemon in pokemonesSalvajes.pokemonesSalvajes" ng-show = "pokemonesSalvajes.proximidad(pokemon)">
                 <tr>
                     <td>{{pokemon.especie.nombre}}</td>
                     <td>{{pokemon.nivel}}</td>
