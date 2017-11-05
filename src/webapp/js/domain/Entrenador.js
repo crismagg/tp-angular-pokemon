@@ -10,7 +10,7 @@ class Entrenador {
         this.llenarPokemonesCapturados()
         this.coordenadaActual
         this.dinero
-        this.pokeballs
+        this.pokeballs = new Pokeball()
         this.victorias
         this.apuesta = 0
         // this.victoria
@@ -26,7 +26,7 @@ class Entrenador {
     }
 
     llenarPokemonesCapturados() {
-        this.pokemonesCapturados = this.equipoCapturados
+        this.pokemonesCapturados = this.equipoPokemon
     }
 
     get tablaDeNiveles() {
@@ -44,7 +44,7 @@ class Entrenador {
     }
 
     static asEntrenador(jsonEntrenador) {
-        var pokemones = _.map(jsonEntrenador.equipoPokemon.data, Pokemon.transformarAPokemon)
+        var pokemones = _.map(jsonEntrenador.equipoPokemon, Pokemon.transformarAPokemon)
         var pokeball = Pokeball.asPokeball(jsonEntrenador.pokeballs)
         var entrenadorTemp = angular.extend(new Entrenador(), jsonEntrenador)
         entrenadorTemp.pokemonesCapturados = pokemones

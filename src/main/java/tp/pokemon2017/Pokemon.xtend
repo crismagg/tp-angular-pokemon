@@ -1,11 +1,12 @@
 package tp.pokemon2017
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.geodds.Point
 
 @Accessors
 class Pokemon {
-	int idPokemon
+	@JsonIgnore int idPokemon = -1
 	var int experiencia = 0
 	Especie especie
 	Point coordenadaActual
@@ -24,7 +25,7 @@ class Pokemon {
 
 		experiencia += experienciaGanada
 		if (especie.tieneEvolucion) {
-			especie.puedeEvolucionar(this)
+//			especie.puedeEvolucionar(this)
 		}
 	}
 

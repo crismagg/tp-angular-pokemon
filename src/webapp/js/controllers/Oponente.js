@@ -29,6 +29,9 @@ class OponenteController {
             this.oponentes = _.map(response.data, this.transformarAEntrenador)
 
         })
+        this.oponentes.forEach(function(trainer){
+            trainer.llenarPokemonesCapturados()
+        })
     }
 
     transformarAEntrenador(jsonEntrenador) {
@@ -65,10 +68,11 @@ class OponenteController {
         this.capturar()
     }
     noTienePokebola(){
-        return !this.player.hayPokeballs()
+        var hayPokebolas = this.player.hayPokeballs()
+        return !hayPokebolas
     }
     pokemonCapturado(){
-        return !this.noTienePokebola() && this.resultadoCaptura
+        return !this.noTienePokebola() && this .resultadoCaptura
     }
     pokemonNoCapturado(){
         return !this.noTienePokebola() && !this.resultadoCaptura

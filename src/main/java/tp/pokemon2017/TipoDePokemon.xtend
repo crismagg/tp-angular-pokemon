@@ -1,17 +1,26 @@
 package tp.pokemon2017
 
-import java.util.Collection
+import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
 class TipoDePokemon {
 	String nombre
-	Collection<TipoDePokemon> resistente = newArrayList
-	Collection<TipoDePokemon> fuerte = newArrayList
+	List<TipoDePokemon> resistente = newArrayList
+	List<TipoDePokemon> fuerte = newArrayList
+
+	new() {
+	}
+
+	new(String name, List<TipoDePokemon> resistent, List<TipoDePokemon> strong) {
+		nombre = name
+		resistente = resistent
+		fuerte = strong
+
+	}
 
 	def fortaleza(Especie especie) {
 		especie.tipos.exists[elemento|fuerte.contains(elemento)]
-		
 
 	}
 

@@ -10,7 +10,7 @@ class Pokemon {
     }
 
     static transformarAPokemon(pokemonJson) {
-        var especieTemp = _.map(pokemonJson.especie.data,Especie.asEspecie)
+        var especieTemp = Especie.asEspecie(pokemonJson.especie)
         var pokemonTemp = angular.extend(new Pokemon(),pokemonJson)
         pokemonTemp.especie = especieTemp
         return pokemonTemp

@@ -9,8 +9,7 @@ class Especie {
     }
 
     static asEspecie(especieJson){
-        console.log(especieJson.tipos)
-        var tiposTemp = _.map(especieJson.tipos.data,TipoEspecie.asTipo)
+        var tiposTemp = _.map(especieJson.tipos,TipoEspecie.asTipo)
         var especieTemp = angular.extend(new Especie(),especieJson)
         especieTemp.tipos = tiposTemp 
         return especieTemp

@@ -12,7 +12,7 @@ class RepositorioPokemones extends RepositorioGenerico<Pokemon> {
 	}
 
 	override create(Pokemon _pokemon) {
-		if (!existeId(_pokemon.idPokemon)) {
+		if (!existeId(_pokemon.idPokemon) || _pokemon.idPokemon <0) {
 			_pokemon.idPokemon = idNuevo
 			idNuevo++
 			listaRepo.add(_pokemon)

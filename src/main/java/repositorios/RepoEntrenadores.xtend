@@ -13,8 +13,8 @@ import tp.pokemon2017.TipoDePokemon
 class RepoEntrenadores {
 
 	RepositorioEntrenadores repo
-	var TipoDePokemon fuego = new TipoDePokemon()
-	var TipoDePokemon agua = new TipoDePokemon()
+	var TipoDePokemon agua 
+	var TipoDePokemon fuego 
 	val tablaDeNiveles = newLinkedHashMap(2 -> 1000, 3 -> 3000, 4 -> 6000, 5 -> 10000, 6 -> 15000, 7 -> 21000,
 		8 -> 28000, 9 -> 36000, 10 -> 45000, 11 -> 55000, 12 -> 65000, 13 -> 75000, 14 -> 85000, 15 -> 100000, 16 ->
 			120000, 17 -> 140000, 18 -> 160000, 19 -> 185000, 20 -> 210000)
@@ -55,7 +55,7 @@ class RepoEntrenadores {
 				coordenadaActual = new Point(58.441856, 34.551667)
 				equipoPokemon = #[new Pokemon() => [
 					experiencia = 0
-					especie = nuevaEspecie("onix", #[fuego], 8)
+					especie = nuevaEspecie("Onix", #[fuego], 8)
 					coordenadaActual = new Point(1, 2)
 					saludActual = 100
 				]]
@@ -102,8 +102,8 @@ class RepoEntrenadores {
 	}
 
 	def crearTipos() {
-//		fuego => [nombre = "fuego" resistente = #[agua] fuerte = #[agua]]
-//		agua => [nombre = "agua" resistente = #[fuego] fuerte = #[fuego]]
+		fuego = new TipoDePokemon("fuego",#[agua],#[agua])
+		agua =new TipoDePokemon("agua",#[fuego],#[fuego])
 	}
 
 }

@@ -18,8 +18,21 @@ class Especie {
 	String descripcion
 	@JsonIgnore boolean tieneEvolucion
 	@JsonIgnore Especie especieEvolucion
-	List<TipoDePokemon> tipos
-	
+	List<TipoDePokemon> tipos = newArrayList
+	String imagen
+
+	new() {
+	}
+
+//	new(int salud, int atack, int speed, String name, String description, List<TipoDePokemon> _tipos) {
+//		saludBase = salud
+//		ataqueBase = atack
+//		velocidad = speed
+//		nombre = name
+//		descripcion = description
+//		tipos = _tipos
+//
+//	}
 
 	// RESISTENCIAS Y DEBILIDADES
 	def esFuerteA(Pokemon rival) {
@@ -37,26 +50,18 @@ class Especie {
 		}
 
 	}
-	
+
 //------ ENTREGA 2 -----------
- 	def validar(){
- 		var boolean especieValida = true
- 		
- 		if( ataqueBase == 0 || 
-			saludBase == 0 || 
-			nombre == null ||
-			numeroID == 0 || 
-			descripcion == null || 
-			velocidad < 1 || velocidad > 10
-			)
-			{throw new BusinessException("La Especie Es Inválida")}
-		
+	def validar() {
+		var boolean especieValida = true
+
+		if (ataqueBase == 0 || saludBase == 0 || nombre == null || numeroID == 0 || descripcion == null ||
+			velocidad < 1 || velocidad > 10) {
+			throw new BusinessException("La Especie Es Inválida")
+		}
+
 		especieValida
-		
-		
-		
-	} 
+
+	}
 //---------------------------	 
-
-
 }
