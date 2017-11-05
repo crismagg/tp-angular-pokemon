@@ -5,6 +5,7 @@ class Especie {
         this.nombre = _nombre
         this.velocidad
         this.imagen
+        this.descripcion
 
     }
 

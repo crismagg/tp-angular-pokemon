@@ -90,6 +90,7 @@ class Entrenador {
         poke.especie = pokemon.especie
         poke.propietario = pokemon.propietario
         poke.nombre = pokemon.nombre
+        poke.descripcion = pokemon.descripcion
         // poke.genero = pokemon.genero
         // poke.salud = pokemon.salud
         return poke
