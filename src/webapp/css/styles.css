@@ -227,9 +227,9 @@ para mejorar la estética en pantallas chicas
   position: absolute; 
   display: block;
   max-width:50%;
-  height: 60%;
-  top:5%;
-  left:0;
+  height: 45%;
+  top:10%;
+  left:15%;
 }
 
 #container-descripcion-pokemon{
