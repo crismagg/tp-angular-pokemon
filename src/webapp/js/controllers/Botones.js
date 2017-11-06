@@ -1,11 +1,10 @@
 class BotonesController {
-    constructor(oponenteService) {
-        this.oponenteService = oponenteService
-        // this.coordenadaGeografica //= new Punto(-58.441856,34.551667)
+    constructor(playerService) {
+        this.playerService = playerService
         this.distanciaAAvanzar = 0.001
     }
     get player(){
-        return this.oponenteService.player
+        return this.playerService.player
     }
     actualizar() {
         this.oponenteService.updatePlayer(this.player, () => {})

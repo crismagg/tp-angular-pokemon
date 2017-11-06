@@ -1,6 +1,8 @@
 const pokemonesSalvajes = {
-    bindings: {},
-    controller: "oponenteController",
+    bindings: {
+        player:"="
+    },
+    controller: "salvajesController", //"oponenteController",
     controllerAs:"pokemonesSalvajes",
     templateUrl: 'partials/components/pokemonesSalvajes.html'
 }

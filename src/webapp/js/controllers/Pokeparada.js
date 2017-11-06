@@ -1,19 +1,17 @@
 class PokeparadaController {
-    constructor(oponenteService) {
-        this.oponenteService = oponenteService
+    constructor() {
         this.pokeparadas = []
         this.obtenerPokeparadasCercanas()
         this.curado = false
+        this.vm = this
     }
-    get player() {
-        return this.oponenteService.player
-    }
+
     obtenerPokeparadasCercanas() {
         let pokeUnsam = new Pokeparada()
         pokeUnsam.nombre = "Pokeparada Unsam"
         pokeUnsam.coordenadaActual = {
-            x : -58.442857,
-            y : 34.551667
+            x: -58.442857,
+            y: 34.551667
         }
         let pokeMiguelete = new Pokeparada()
         pokeMiguelete.nombre = "Pokeparada Miguelete"
@@ -25,7 +23,7 @@ class PokeparadaController {
     }
 
     curar() {
-        this.player.pokemonesCapturados.forEach(function (pokemon) {
+        this.vm.player.pokemonesCapturados.forEach(function (pokemon) {
             pokemon.curarCompleto()
         })
         this.curado = true

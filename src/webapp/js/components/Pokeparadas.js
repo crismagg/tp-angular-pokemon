@@ -1,6 +1,6 @@
 const pokeparadasComponent = {
     bindings: {
-
+        player : "="
     },
     controllerAs: "pokeparadasCtrl",
     controller: "pokeparadaController"

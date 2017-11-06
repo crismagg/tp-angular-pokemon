@@ -19,15 +19,16 @@ class OponenteService {
     updatePlayer(player, callback) {
         this.$http.put('http://localhost:9000/player/', player).then(callback)
     }
-    findSalvajes(callback) {
-        this.$http.get('http://localhost:9000/salvajes').then(callback)
-    }
 
     takePlayer() {
         this.findPlayer((response) => {
             this.player = this.transformarAEntrenador(response.data)
             this.player.calcularNivel()
         })
+    }
+    
+    findSalvajes(callback) {
+        this.$http.get('http://localhost:9000/salvajes').then(callback)
     }
 
     getPokemones() {
@@ -36,7 +37,7 @@ class OponenteService {
 
         })
     }
-    asPokemon(jsonPokemon){
+    asPokemon(jsonPokemon) {
         return Pokemon.transformarAPokemon(jsonPokemon)
     }
 

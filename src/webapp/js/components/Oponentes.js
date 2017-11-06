@@ -1,6 +1,6 @@
 const oponentesComponent = {
     bindings:{
-        // player: "="
+        player: "="
 
     },
     controller :"oponenteController as Oponente" ,
