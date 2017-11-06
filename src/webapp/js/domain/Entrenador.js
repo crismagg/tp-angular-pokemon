@@ -11,7 +11,7 @@ class Entrenador {
         this.coordenadaActual
         this.dinero
         this.pokeballs = new Pokeball()
-        this.victorias
+        this.victorias = 0
         this.apuesta = 0
         // this.victoria
         this.pokemonElegido
@@ -64,6 +64,7 @@ class Entrenador {
 
                 this.dinero += this.apuesta
                 this.apuesta = 0
+                this.victorias++
             }
         }
         return result
