@@ -26,21 +26,4 @@ class TipoEspecie {
             })
         })
     }
-
-
-    // resistencia(tipos) {
-    //     return tipos.some(function (tipo) {
-    //         this.resistente.has(tipo)
-    //     })
-    // }
-    // esFuerte(element) {
-    //     return this.contains(fuerte, element)
-    // }
-
-    // contains(_array, _value) {
-    //     return _array.some(function (array_value) {
-    //         return _value === array_value
-    //     })
-    // }
-
 }

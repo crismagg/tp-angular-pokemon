@@ -2,6 +2,7 @@ class SalvajeService{
     constructor($http){
         this.$http = $http
         this.pokemonesSalvajes   
+        this.getPokemones()
     }
 
     findSalvajes(callback) {

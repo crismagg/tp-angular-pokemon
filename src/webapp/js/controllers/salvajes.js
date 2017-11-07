@@ -1,7 +1,7 @@
 class SalvajesController {
 
-    constructor(oponenteService) {
-        this.oponenteService = oponenteService
+    constructor(salvajeService) {
+        this.salvajeService = salvajeService
         this.vm = this
         this.pokemonSeleccionado
         this.nuevoMote
@@ -33,7 +33,7 @@ class SalvajesController {
     }
 
     get pokemonesSalvajes() {
-        return this.oponenteService.pokemonesSalvajes
+        return this.salvajeService.pokemonesSalvajes
     }
 
     seleccionarSalvaje(pokemon) {

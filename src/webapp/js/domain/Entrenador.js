@@ -13,7 +13,6 @@ class Entrenador {
         this.pokeballs = new Pokeball()
         this.victorias = 0
         this.apuesta = 0
-        // this.victoria
         this.pokemonElegido
         this.calcularNivel()
     }
@@ -76,7 +75,6 @@ class Entrenador {
         //     (this.pokemonElegido.chancesVictoria() / (this.pokemonElegido.chancesVictoria() + oponente.pokemonElegido.chancesVictoria()))
     }
     capturar(pokemon) {
-        // return true
         this.pokeballs.usar()
         var randomizer = Math.random()
         return randomizer <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar)

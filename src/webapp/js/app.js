@@ -1,6 +1,7 @@
 angular.module("pokemonApp", ['ui.router'])
     .service("playerService", PlayerService)
     .service("oponenteService", OponenteService)
+    .service("salvajeService", SalvajeService)
     .service("pokeparadaService", PokeparadaService)
     .controller("elMundoController", MundoController)
     .controller("oponenteController", OponenteController)

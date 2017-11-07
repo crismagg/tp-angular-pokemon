@@ -19,13 +19,6 @@ class OponenteController {
     get distanciaAAvanzar() {
         return 0.001
     }
-    // get player() {
-    //     return this.playerService.player
-    //     // return this.oponenteService.player
-    // }
-    // get pokemonesSalvajes() {
-    //     return this.oponenteService.pokemonesSalvajes
-    // }
     obtenerOponentesCercanos() {
         this.oponenteService.findAll((response) => {
             this.oponentes = _.map(response.data, this.transformarAEntrenador)
@@ -48,36 +41,7 @@ class OponenteController {
     seleccionar(oponente) {
         this.oponenteBatalla = oponente
     }
-    // capturar() {
-    //     this.resultadoCaptura = this.player.capturar(this.pokemonSeleccionado)
-    // }
-    // nombrar() {
-    //     var mote = this.nuevoMote
-
-    //     if (mote == null) {
-    //         mote = this.pokemonSeleccionado.especie.nombre
-    //     }
-    //     this.nuevoMote = null
-    //     this.pokemonSeleccionado.nombre = mote
-    //     this.player.agregarAlEquipo(this.pokemonSeleccionado)
-    // }
     elegirPokemonBatalla(pokemon) {
         this.pokemonBatalla = pokemon
     }
-
-    // seleccionarSalvaje(pokemon) {
-    //     this.pokemonSeleccionado = pokemon
-    //     this.capturar()
-    // }
-    // noTienePokebola(){
-    //     var hayPokebolas = this.player.hayPokeballs()
-    //     return !hayPokebolas
-    // }
-    // pokemonCapturado(){
-    //     return !this.noTienePokebola() && this .resultadoCaptura
-    // }
-    // pokemonNoCapturado(){
-    //     return !this.noTienePokebola() && !this.resultadoCaptura
-    // }
-
 }
