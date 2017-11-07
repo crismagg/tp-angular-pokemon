@@ -87,6 +87,7 @@ class RepoEntrenadores {
 			experiencia = 450000
 			esExperto = true
 			coordenadaActual = new Point(-58.441856, 34.551667)
+			victorias = 6
 		])
 	}
 

@@ -64,7 +64,7 @@ class Entrenador {
 
                 this.dinero += this.apuesta
                 this.apuesta = 0
-                this.victorias++
+                this.victorias+=1
             }
         }
         return result

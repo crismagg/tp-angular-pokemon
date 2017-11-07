@@ -25,7 +25,7 @@ class Entrenador {
 	@JsonIgnore Collection<Pokemon> depositoPokemon = new ArrayList()
 	@JsonIgnore TipoDeEntrenador tipoDeEntrenador
 	@JsonIgnore public static var random = [|return Math.random]
-	@JsonIgnore int victorias = 0
+	int victorias = 0
 	@JsonIgnore int cantidadPokemonesEvolucionados = 0
 	double dinero = 100
 	@JsonIgnore Bolso bolso
