@@ -29,6 +29,10 @@ class OponenteController {
         })
     }
 
+    get batallaValida(){
+        return this.vm.player.pokemonesCapturados.length > 0 
+    }
+
     transformarAEntrenador(jsonEntrenador) {
         return Entrenador.asEntrenador(jsonEntrenador)
     }

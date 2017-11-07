@@ -39,18 +39,23 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <table>
-                            <td>
-                                <select ng-model="Oponente.player.pokemonElegido" ng-options="pokemon.especie.nombre for pokemon in Oponente.player.pokemonesCapturados">
-                                </select>
-                            </td>
-                            <td class="fuentePokemon" style="margin-left: 10%; position: absolute;">Usted Elige El Pokemon:</td>
-                            <td class = "fuentePokemon" style="margin-left: 40%; position: absolute;">{{Oponente.player.pokemonElegido.especie.nombre}}</td>
-                        </table>
+                        <div class = "well-lg" ng-show="Oponente.batallaValida">
+                            <table>
+                                <td>
+                                    <select ng-model="Oponente.player.pokemonElegido" ng-options="pokemon.especie.nombre for pokemon in Oponente.player.pokemonesCapturados">
+                                    </select>
+                                </td>
+                                <td class="fuentePokemon" style="margin-left: 10%; position: absolute;">Usted Elige El Pokemon:</td>
+                                <td class = "fuentePokemon" style="margin-left: 40%; position: absolute;">{{Oponente.player.pokemonElegido.especie.nombre}}</td>
+                            </table>
+                        </div>
+                        <div class= "well-lg" "well-lg" ng-show="!Oponente.batallaValida">
+                            <b class="usaFuentePokemon">Lo siento no tienes Pokemones Capturados.</b>
+                        </div>
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal" ng-click="Oponente.battle()">Battle</button>
+                    <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal" ng-click="Oponente.battle()" ng-show="Oponente.batallaValida">Battle</button>
                     <button type="button" class="btn btn-danger fuentePokemon" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
