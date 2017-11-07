@@ -11,10 +11,11 @@
                 <div id="container-descripcion-entrenador">
                     <div class="descripcion-entrenador">
                         <ul>
-                            <li>Nivel:{{entrenador.player.nivel}}</li>
-                            <li>Experiencia:{{entrenador.player.experiencia}}</li>
-                            <li>Dinero:{{entrenador.player.dinero}}</li>
-                            <li>Victorias:{{entrenador.player.victorias}}</li>
+                            <li><b>Nivel:</b>{{entrenador.player.nivel}}</li>
+                            <li><b>Experiencia:</b>{{entrenador.player.experiencia}}</li>
+                            <li><b>Dinero:</b>{{entrenador.player.dinero}}</li>
+                            <li><b>Victorias:</b>{{entrenador.player.victorias}}</li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -32,7 +33,7 @@
                                 <th>Nivel</th>
                             </tr>
                             <tr>
-                                <tr ng-repeat="pokemon in entrenador.player.pokemonesCapturados" ng-click="entrenador.seleccionar(pokemon)">
+                                <tr ng-repeat="pokemon in entrenador.player.equipoPokemon" ng-click="entrenador.seleccionar(pokemon)">
                                     <td>{{pokemon.nombre}}</td>
                                     <td>{{pokemon.especie.nombre}}</td>
                                     <td>{{pokemon.nivel}}</td>
@@ -72,12 +73,12 @@
                 <div id="container-descripcion-pokemon">
                     <div class="descripcion-pokemon">
                         <ul>
-                            <li>Nombre:<span ng-bind="entrenador.pokemonSeleccionado.nombre"></span></li>
-                            <li>Especie:<span ng-bind="entrenador.pokemonSeleccionado.especie.nombre"></span></li>
-                            <li>Tipo:<span ng-bind="entrenador.pokemonSeleccionado.especie.tipos[0].nombre"></span></li>
-                            <li>Nivel:<span ng-bind="entrenador.pokemonSeleccionado.nivel"></span></li>
-                            <li>Experiencia:<span ng-bind="entrenador.pokemonSeleccionado.experiencia"></span></li>
-                            <li>Descripcion:<span ng-bind="entrenador.pokemonSeleccionado.especie.descripcion"></span></li>
+                            <li><b>Nombre:</b><span ng-bind="entrenador.pokemonSeleccionado.nombre"></span></li>
+                            <li><b>Especie:</b> <span ng-bind="entrenador.pokemonSeleccionado.especie.nombre"></span></li>
+                            <li><b>Tipo</b> <span ng-bind="entrenador.pokemonSeleccionado.especie.tipos[0].nombre"></span></li>
+                            <li><b>Nivel:</b> <span ng-bind="entrenador.pokemonSeleccionado.nivel"></span></li>
+                            <li><b>Experiencia:</b> <span ng-bind="entrenador.pokemonSeleccionado.experiencia"></span></li>
+                            <li><b>Descripcion:</b> <span ng-bind="entrenador.pokemonSeleccionado.especie.descripcion"></span></li>
                         </ul>
                     </div>
                 </div>

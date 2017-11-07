@@ -6,8 +6,6 @@ class Entrenador {
         this.experiencia = 0;
         this.esExperto
         this.equipoPokemon
-        this.pokemonesCapturados = []
-        this.llenarPokemonesCapturados()
         this.coordenadaActual
         this.dinero
         this.pokeballs = new Pokeball()
@@ -22,10 +20,6 @@ class Entrenador {
     ganaExperiencia(experienciaGanada) {
         this.experiencia += experienciaGanada
         this.calcularNivel()
-    }
-
-    llenarPokemonesCapturados() {
-        this.pokemonesCapturados = this.equipoPokemon
     }
 
     get tablaDeNiveles() {
@@ -80,7 +74,7 @@ class Entrenador {
         return randomizer <= this.chancesCapturar() / (this.chancesCapturar() + pokemon.chancesEscapar)
     }
     agregarAlEquipo(pokemon) {
-        this.pokemonesCapturados.push(this.nuevoPokemon(pokemon))
+        this.equipoPokemon.push(this.nuevoPokemon(pokemon))
     }
 
     nuevoPokemon(pokemon) {
